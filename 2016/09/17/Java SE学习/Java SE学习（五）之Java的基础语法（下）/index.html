@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>Java SE学习（五）之Java的基础语法（下） | LuckyLight&#39;s blog</title>
+  
+  <meta name="keywords" content="LuckyLight, Blog, Java">
+  
+  
+
+  
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+
+  <!-- link -->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.6.3/css/all.min.css">
+  
+
+  
+  <link rel="shortcut icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/22209857">
+  
+
+  
+  <link rel="stylesheet" href="/style.css">
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width = num + "%";
+    }
+  </script>
+
+  
+  
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
+</div>
+
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class="wrapper">
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href="/">
+        
+          LuckyLight's blog
+        
+      </a>
+			<div class="menu">
+				<ul class="h-list">
+          
+  					
+  						<li>
+								<a id="home" class="nav flat-box" href="/">
+									<i class="fas fa-home fa-fw"></i>&nbsp;首页
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="archives" class="nav flat-box" href="/archives/">
+									<i class="fas fa-archive fa-fw"></i>&nbsp;归档
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="categories" class="nav flat-box" href="/categories/">
+									<i class="fas fa-folder-open fa-fw"></i>&nbsp;分类
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="tags" class="nav flat-box" href="/tags/">
+									<i class="fas fa-tags fa-fw"></i>&nbsp;标签
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="books" class="nav flat-box" href="/books/">
+									<i class="fas fa-book fa-fw"></i>&nbsp;读书
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="movies" class="nav flat-box" href="/movies/">
+									<i class="fas fa-film fa-fw"></i>&nbsp;电影
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="links" class="nav flat-box" href="/links/">
+									<i class="fas fa-user-friends fa-fw"></i>&nbsp;友链
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="about" class="nav flat-box" href="/about/">
+									<i class="fas fa-grin-alt fa-fw"></i>&nbsp;关于
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="搜索">
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class="switcher h-list">
+				
+					<li class="s-search"><a class="fas fa-search fa-fw" href="javascript:void(0)"></a></li>
+				
+				<li class="s-menu"><a class="fas fa-bars fa-fw" href="javascript:void(0)"></a></li>
+			</ul>
+		</div>
+
+		<div class="nav-sub container container--flex">
+			<a class="logo flat-box"></a>
+			<ul class="switcher h-list">
+				<li class="s-comment"><a class="flat-btn fas fa-comments fa-fw" href="javascript:void(0)"></a></li>
+				<li class="s-toc"><a class="flat-btn fas fa-list fa-fw" href="javascript:void(0)"></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu">
+      <ul>
+          
+              
+                  <li>
+										<a id="home" class="nav flat-box" href="/">
+											<i class="fas fa-home fa-fw"></i>&nbsp;首页
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="archives" class="nav flat-box" href="/archives/">
+											<i class="fas fa-archive fa-fw"></i>&nbsp;归档
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="categories" class="nav flat-box" href="/categories/">
+											<i class="fas fa-folder-open fa-fw"></i>&nbsp;分类
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="tags" class="nav flat-box" href="/tags/">
+											<i class="fas fa-tags fa-fw"></i>&nbsp;标签
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="books" class="nav flat-box" href="/books/">
+											<i class="fas fa-book fa-fw"></i>&nbsp;读书
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="movies" class="nav flat-box" href="/movies/">
+											<i class="fas fa-film fa-fw"></i>&nbsp;电影
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="links" class="nav flat-box" href="/links/">
+											<i class="fas fa-user-friends fa-fw"></i>&nbsp;友链
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="about" class="nav flat-box" href="/about/">
+											<i class="fas fa-grin-alt fa-fw"></i>&nbsp;关于
+										</a>
+                  </li>
+              
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+  
+<section class="meta">
+  
+  
+  <div class="meta" id="header-meta">
+    
+      
+          <h1 class="title">Java SE学习（五）之Java的基础语法（下）</h1>
+      
+    
+
+    <div class="new-meta-box">
+      
+        <div class="new-meta-item author">
+          <a href="http://blog.luckylight6.com">
+            <i class="fas fa-user" aria-hidden="true"></i>
+            LuckyLight
+          </a>
+        </div>
+      
+      
+        <div class="new-meta-item date">
+          <a class="notlink">
+            <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+            2016-09-17
+          </a>
+        </div>
+      
+      
+        
+          
+          <div class="new-meta-item category">
+            <a href="/categories/Java-SE学习/">
+              <i class="fas fa-folder-open" aria-hidden="true"></i>
+              Java SE学习
+            </a>
+          </div>
+        
+      
+      
+        
+          <div class="new-meta-item browse busuanzi">
+            <a class="notlink">
+              <i class="fas fa-eye" aria-hidden="true"></i>
+              <span id="busuanzi_value_page_pv">
+                <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+              </span>
+            </a>
+          </div>
+        
+      
+      
+    </div>
+    <hr>
+  </div>
+</section>
+
+    <section class="article typo">
+      <div class="article-entry" itemprop="articleBody">
+        <p><img src="https://i.loli.net/2019/03/09/5c83b9ea8eeeb.png" alt></p>
+<a id="more"></a>
+<h1 id="java-se学习五之java的基础语法下"><a class="markdownIt-Anchor" href="#java-se学习五之java的基础语法下"></a> Java SE学习（五）之Java的基础语法（下）</h1>
+<h2 id="流程控制语句"><a class="markdownIt-Anchor" href="#流程控制语句"></a> 流程控制语句</h2>
+<p>语句是每种程序设计语言必不可少的一部分，当然，Java 也不例外。它具有特定的语法规则，用来控制程序的运行。Java 提供了多种语句来控制程序的流程，它们可以分为：</p>
+<ul>
+<li>表达式语句</li>
+<li>复合语句</li>
+<li>分支语句</li>
+<li>循环语句</li>
+<li>跳转语句</li>
+</ul>
+<p>接下来将详细介绍各种语句。</p>
+<h3 id="表达式语句"><a class="markdownIt-Anchor" href="#表达式语句"></a> 表达式语句</h3>
+<p>所谓表达式语句，就是在表达式的后面加上一个分号 <code>;</code>。分号是语句终结符，出了复合语句外，其他任何 Java 语句都必须以分号结束。</p>
+<p>表达式和表达式语句的区别在于表达式代表的是一个数值，而表达式语句代表的是一个动作。最常见的表达式语句就是赋值语句。</p>
+<p>以下是一些典型的表达式语句：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a += <span class="number">3</span>;</span><br><span class="line">++a;</span><br><span class="line">b = a &gt;&gt; <span class="number">2</span>;</span><br><span class="line">a = (<span class="keyword">int</span>) Math.random();</span><br></pre></td></tr></table></figure>
+<h3 id="复合语句"><a class="markdownIt-Anchor" href="#复合语句"></a> 复合语句</h3>
+<p>复合语句又称为块语句。它的格式如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    语句序列</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>即复合语句是以一个左花括号 <code>{</code> 开始，以一个右花括号 <code>}</code> 结束，中间的 <code>语句序列</code> 可以是一个或者多个任何合法的 Java 语句。需要注意的是：右花括号 <code>}</code> 后面没有分号 <code>;</code>。</p>
+<p>复合语句是非常有用的，因为在分支语句和循环语句的控制体中，只允许一条简单语句，但实现一个功能往往需要多条语句。这时候就可以使用复合语句，放到在控制体中。</p>
+<p>Java 规定，在复合语句中定义的变量被称为局部变量，其作用域是左花括号 <code>{</code> 到右花括号 <code>}</code>，即整个复合语句。</p>
+<h3 id="分支语句"><a class="markdownIt-Anchor" href="#分支语句"></a> 分支语句</h3>
+<p>在 Java 中有两种类型的分支语句，它们分别是：</p>
+<ul>
+<li>if 语句</li>
+<li>switch 语句</li>
+</ul>
+<h4 id="if-语句"><a class="markdownIt-Anchor" href="#if-语句"></a> if 语句</h4>
+<h5 id="单一的-if-语句"><a class="markdownIt-Anchor" href="#单一的-if-语句"></a> 单一的 if 语句</h5>
+<p>if 语句由一个布尔表达式后跟一个或多个语句组成。</p>
+<p>使用格式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (exp)</span><br><span class="line">    statement</span><br></pre></td></tr></table></figure>
+<ul>
+<li>exp 可以是 Java 中任意合法的关系表达式、逻辑表达式或者 boolean 变量，但是必须放在括号内。</li>
+<li>statement 只能是一条语句，这条语句可以是简单语句或块语句。</li>
+</ul>
+<p>其功能是，如果表达式 exp 的值为真，则执行 statement 所表示的操作，否则 statement 不执行，继续后续语句。</p>
+<p>例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">      <span class="keyword">int</span> x = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span>( x &lt; <span class="number">20</span> ) &#123;</span><br><span class="line">         System.out.print(<span class="string">"This is if statement"</span>);</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其结果为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">This is <span class="keyword">if</span> statement</span><br></pre></td></tr></table></figure>
+<h5 id="ifelse-语句"><a class="markdownIt-Anchor" href="#ifelse-语句"></a> if…else 语句</h5>
+<p>任何 if 语句后面可以跟一个可选的 else 语句，当布尔表达式为 false，语句被执行。</p>
+<p>使用格式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (exp)</span><br><span class="line">    statement1</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    statement2</span><br></pre></td></tr></table></figure>
+<p>其功能是，如果表达式 exp 的值为真，则执行 statement1 所表示的操作，否则执行 statement2 所表示的操作。</p>
+<p>例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">      <span class="keyword">int</span> x = <span class="number">30</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span>( x &lt; <span class="number">20</span> ) &#123;</span><br><span class="line">         System.out.print(<span class="string">"This is if statement"</span>);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">         System.out.print(<span class="string">"This is else statement"</span>);</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其结果为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">This is <span class="keyword">else</span> statement</span><br></pre></td></tr></table></figure>
+<h5 id="ifelse-ifelse-语句"><a class="markdownIt-Anchor" href="#ifelse-ifelse-语句"></a> if…else if…else 语句</h5>
+<p>if 后面可以跟一个可选的 else if…else 语句，在测试不同条件下单一的 if 语句和 else if 语句是非常有用的。</p>
+<p>当使用 if…else if…else 语句时有几点要牢记：</p>
+<ul>
+<li>一个 if 语句可以有0个或一个 else 语句 且它必须在 else if 语句的之后。</li>
+<li>一个 if 语句 可以有0个或多个 else if 语句且它们必须在 else 语句之前。</li>
+<li>一旦 else if 语句成功, 余下 else if 语句或 else 语句都不会被测试执行。</li>
+</ul>
+<p>使用格式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (exp1)</span><br><span class="line">    statement1</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (exp2)</span><br><span class="line">    statement2</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (exp3)</span><br><span class="line">    statement3</span><br><span class="line">...</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (exp m)</span><br><span class="line">    statement m</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    statement n</span><br></pre></td></tr></table></figure>
+<p>例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">      <span class="keyword">int</span> x = <span class="number">30</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span>( x == <span class="number">10</span> ) &#123;</span><br><span class="line">         System.out.print(<span class="string">"Value of X is 10"</span>);</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span>( x == <span class="number">20</span> ) &#123;</span><br><span class="line">         System.out.print(<span class="string">"Value of X is 20"</span>);</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span>( x == <span class="number">30</span> ) &#123;</span><br><span class="line">         System.out.print(<span class="string">"Value of X is 30"</span>);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">         System.out.print(<span class="string">"This is else statement"</span>);</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其结果为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Value of X is <span class="number">30</span></span><br></pre></td></tr></table></figure>
+<h5 id="嵌套-if-语句"><a class="markdownIt-Anchor" href="#嵌套-if-语句"></a> 嵌套 if 语句</h5>
+<p>在 Java 中可以嵌套使用 if 语句，这意味着你可以在一个 if 或 else if 语句中使用一个 if 或 else if 语句。</p>
+<p>使用格式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (exp1)</span><br><span class="line">    <span class="keyword">if</span> (exp2)</span><br><span class="line">        statement1</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        statement2</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="keyword">if</span> (exp3)</span><br><span class="line">        statement3</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        statement4</span><br></pre></td></tr></table></figure>
+<p>需要注意 if 和 else 的配对关系，Java 规定，else 总是与它上面最近的、未曾匹配的 if 配对。</p>
+<p>例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">      <span class="keyword">int</span> x = <span class="number">30</span>;</span><br><span class="line">      <span class="keyword">int</span> y = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span>( x == <span class="number">30</span> ) &#123;</span><br><span class="line">         <span class="keyword">if</span>( y == <span class="number">10</span> ) &#123;</span><br><span class="line">             System.out.print(<span class="string">"X = 30 and Y = 10"</span>);</span><br><span class="line">          &#125;</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其结果为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">X = <span class="number">30</span> and Y = <span class="number">10</span></span><br></pre></td></tr></table></figure>
+<h4 id="switch-语句"><a class="markdownIt-Anchor" href="#switch-语句"></a> switch 语句</h4>
+<p>Java 提供了 switch…case 语句，专门用来处理 <code>多选一</code> 的情况，故又称之为多路选择语句。</p>
+<p>使用格式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> (exp) &#123;</span><br><span class="line">    <span class="keyword">case</span> value1:</span><br><span class="line">       statement1</span><br><span class="line">       <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> value2:</span><br><span class="line">       statement2</span><br><span class="line">       <span class="keyword">break</span>;</span><br><span class="line">	...</span><br><span class="line">	<span class="keyword">case</span> value m:</span><br><span class="line">		statement m</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">       statement n</span><br><span class="line">	   <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>switch 语句有以下规则：</p>
+<ul>
+<li>在 switch 语句中使用的变量可以是 byte、short、int、char、枚举类型、String（<code>JDK7</code> 新特性）。</li>
+<li>在一个 switch 语句中可以有任何数量的 case 语句。每个 case 后跟着即将被比较的值和一个冒号。</li>
+<li>对于 case 的值必须是相同的数据类型作为开关变量，它必须是一个常量或文字。</li>
+<li>当被启动了的变量与 case 是相等的，那 case 后的语句将执行，一直到 break 为止。</li>
+<li>当达到一个 break 语句，switch 终止，并且控制流跳转到跟着 switch 语句的下一行。</li>
+<li>不是每一个 case 需要包含一个 break。如果没有出现 break，控制流将贯穿到后面的 case 直到 break 为止。</li>
+<li>switch 语句可以有一个可选默认 case （default），它可以出现在 switch 的结束处。在执行一项任务时没有任何 case 是真，那它就可被使用。</li>
+</ul>
+<p>例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">      <span class="keyword">char</span> score = <span class="string">'C'</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">switch</span>(score) &#123;</span><br><span class="line">         <span class="keyword">case</span> <span class="string">'A'</span> :</span><br><span class="line">            System.out.println(<span class="string">"Excellent!"</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">         <span class="keyword">case</span> <span class="string">'B'</span> :</span><br><span class="line">         <span class="keyword">case</span> <span class="string">'C'</span> :</span><br><span class="line">            System.out.println(<span class="string">"Well done"</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">         <span class="keyword">case</span> <span class="string">'D'</span> :</span><br><span class="line">            System.out.println(<span class="string">"You passed"</span>);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">         <span class="keyword">case</span> <span class="string">'F'</span> :</span><br><span class="line">            System.out.println(<span class="string">"Better try again"</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">         <span class="keyword">default</span> :</span><br><span class="line">            System.out.println(<span class="string">"Invalid grade"</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      System.out.println(<span class="string">"Your score is "</span> + score);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其结果为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Well done</span><br><span class="line">Your score is a C</span><br></pre></td></tr></table></figure>
+<h3 id="循环语句"><a class="markdownIt-Anchor" href="#循环语句"></a> 循环语句</h3>
+<h4 id="while-循环"><a class="markdownIt-Anchor" href="#while-循环"></a> while 循环</h4>
+<p>while循环是一个控制结构，可以重复的特定任务次数。</p>
+<p>使用格式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (exp)</span><br><span class="line">    statement</span><br></pre></td></tr></table></figure>
+<ul>
+<li>exp 是任意合法的关系表达式或逻辑表达式，也可以是 boolean 类型的变量或者常量</li>
+<li>statement 是一条语句，被称为循环体。语法上规定，循环体只能是一条语句，当需要执行多条语句的时候，应该使用复合语句。</li>
+</ul>
+<p>执行流程：</p>
+<ul>
+<li>对表达式 exp 求值</li>
+<li>若值为真，则执行循环体
+<ul>
+<li>执行完成后，再次对表达式 exp 求值，判断是否继续循环，如此反复</li>
+</ul>
+</li>
+<li>若值为假，则退出循环</li>
+</ul>
+<p>例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">      <span class="keyword">int</span> x = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">while</span>( x &lt; <span class="number">20</span> ) &#123;</span><br><span class="line">         System.out.print(<span class="string">"value of x : "</span> + x );</span><br><span class="line">         x++;</span><br><span class="line">         System.out.print(<span class="string">"\n"</span>);</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">value of x : <span class="number">10</span></span><br><span class="line">value of x : <span class="number">11</span></span><br><span class="line">value of x : <span class="number">12</span></span><br><span class="line">value of x : <span class="number">13</span></span><br><span class="line">value of x : <span class="number">14</span></span><br><span class="line">value of x : <span class="number">15</span></span><br><span class="line">value of x : <span class="number">16</span></span><br><span class="line">value of x : <span class="number">17</span></span><br><span class="line">value of x : <span class="number">18</span></span><br><span class="line">value of x : <span class="number">19</span></span><br></pre></td></tr></table></figure>
+<h4 id="dowhile-循环"><a class="markdownIt-Anchor" href="#dowhile-循环"></a> do…while 循环</h4>
+<p>do … while循环类似于while循环，不同的是一个do … while循环是保证至少执行一次。</p>
+<p>使用格式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span></span><br><span class="line">    statement</span><br><span class="line"><span class="keyword">while</span> (exp);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>exp 是任意合法的关系表达式或逻辑表达式，也可以是 boolean 类型的变量或者常量</li>
+<li>statement 是一条语句，被称为循环体。语法上规定，循环体只能是一条语句，当需要执行多条语句的时候，应该使用复合语句。</li>
+</ul>
+<p><strong>注意：do…while循环后有分号。</strong></p>
+<p>执行流程：</p>
+<ul>
+<li>先执行一次循环体，然后对 exp 表达式求值</li>
+<li>若值为真，则执行循环体
+<ul>
+<li>执行完成后，再次对表达式 exp 求值，判断是否继续循环，如此反复</li>
+</ul>
+</li>
+<li>若值为假，则退出循环</li>
+</ul>
+<p>例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">      <span class="keyword">int</span> x = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">do</span> &#123;</span><br><span class="line">         System.out.print(<span class="string">"value of x : "</span> + x );</span><br><span class="line">         x++;</span><br><span class="line">         System.out.print(<span class="string">"\n"</span>);</span><br><span class="line">      &#125; <span class="keyword">while</span>( x &lt; <span class="number">20</span> );</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">value of x : <span class="number">10</span></span><br><span class="line">value of x : <span class="number">11</span></span><br><span class="line">value of x : <span class="number">12</span></span><br><span class="line">value of x : <span class="number">13</span></span><br><span class="line">value of x : <span class="number">14</span></span><br><span class="line">value of x : <span class="number">15</span></span><br><span class="line">value of x : <span class="number">16</span></span><br><span class="line">value of x : <span class="number">17</span></span><br><span class="line">value of x : <span class="number">18</span></span><br><span class="line">value of x : <span class="number">19</span></span><br></pre></td></tr></table></figure>
+<h4 id="for-循环"><a class="markdownIt-Anchor" href="#for-循环"></a> for 循环</h4>
+<p>Java 中的 for 循环语句使用最为灵活，不仅可以用于循环次数已知的情况，也可以用在循环次数不确定而只给出循环条件结束的情况。</p>
+<p>使用格式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (exp1; exp2; exp3)</span><br><span class="line">    statement</span><br></pre></td></tr></table></figure>
+<ul>
+<li>exp1 是循环初值表达式，它在第一次循环开始前计算，且只计算一次，其作用是给循环控制变量赋初值。</li>
+<li>exp2 是循环条件判断表达式，它在每次循环开始之前计算，已决定能否进行循环。一般情况下，该表达式决定了循环进行的次数。</li>
+<li>exp3 是循环控制变量调整表达式，它在每次循环结束后计算，使循环控制变量改变，从而使循环能够结束。</li>
+<li>statement 是一条语句，被称为循环体。语法上规定，循环体只能是一条语句，当需要执行多条语句的时候，应该使用复合语句。</li>
+</ul>
+<p>执行流程：</p>
+<ul>
+<li>首先执行环初值表达式</li>
+<li>其次循环条件判断表达式，判断其是真还是假：</li>
+<li>true：执行循环体；继续执行循环控制变量调整表达式，然后回到循环条件判断表达式继续执行。</li>
+<li>false：循环结束，继续执行for循环后面的语句。</li>
+</ul>
+<p>例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> x = <span class="number">10</span>; x &lt; <span class="number">20</span>; x = x+<span class="number">1</span>) &#123;</span><br><span class="line">         System.out.print(<span class="string">"value of x : "</span> + x );</span><br><span class="line">         System.out.print(<span class="string">"\n"</span>);</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">value of x : <span class="number">10</span></span><br><span class="line">value of x : <span class="number">11</span></span><br><span class="line">value of x : <span class="number">12</span></span><br><span class="line">value of x : <span class="number">13</span></span><br><span class="line">value of x : <span class="number">14</span></span><br><span class="line">value of x : <span class="number">15</span></span><br><span class="line">value of x : <span class="number">16</span></span><br><span class="line">value of x : <span class="number">17</span></span><br><span class="line">value of x : <span class="number">18</span></span><br><span class="line">value of x : <span class="number">19</span></span><br></pre></td></tr></table></figure>
+<h4 id="增强-for-循环"><a class="markdownIt-Anchor" href="#增强-for-循环"></a> 增强 for 循环</h4>
+<p>增强 for 循环是 Java5 的新特性。主要用于遍历数组或者集合。</p>
+<p>使用格式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(declaration : expression)</span><br><span class="line">    statements</span><br></pre></td></tr></table></figure>
+<ul>
+<li>声明: 新声明块变量，这是一种与你所正在访问数组中的元素兼容的变量。该变量在 for 块内可被利用并且它的值作为当前的数组元素将是相同的。</li>
+<li>表达: 这个计算结果完成需要循环数组。表达式可以是一个数组变量或返回一个数组的方法调用。</li>
+<li>statement 是一条语句，被称为循环体。语法上规定，循环体只能是一条语句，当需要执行多条语句的时候，应该使用复合语句。</li>
+</ul>
+<p>例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">      <span class="keyword">int</span> [] numbers = &#123;<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>&#125;;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> x : numbers ) &#123;</span><br><span class="line">         System.out.print( x );</span><br><span class="line">         System.out.print(<span class="string">","</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      System.out.print(<span class="string">"\n"</span>);</span><br><span class="line">      String [] names =&#123;<span class="string">"James"</span>, <span class="string">"Larry"</span>, <span class="string">"Tom"</span>, <span class="string">"Lacy"</span>&#125;;</span><br><span class="line">      <span class="keyword">for</span>( String name : names ) &#123;</span><br><span class="line">         System.out.print( name );</span><br><span class="line">         System.out.print(<span class="string">" "</span>);</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10</span> <span class="number">20</span> <span class="number">30</span> <span class="number">40</span> <span class="number">50</span></span><br><span class="line">James Larry Tom Lacy</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>增强 for 循环的缺点：丢掉了索引信息。</strong><br>
+当遍历集合或数组时，如果需要访问集合或数组的下标，那么最好使用旧式的方式来实现循环或遍历，而不要使用增强的for循环，因为它丢失了下标信息。</p>
+</blockquote>
+<h3 id="跳转语句"><a class="markdownIt-Anchor" href="#跳转语句"></a> 跳转语句</h3>
+<h4 id="跳转语句-break"><a class="markdownIt-Anchor" href="#跳转语句-break"></a> 跳转语句 break</h4>
+<p>break 语句用来实现控制转移，跳转语句可以使用在 switch 语句或者循环中，可以跳出 switch 语句或者循环。</p>
+<h5 id="一般的-break-语句"><a class="markdownIt-Anchor" href="#一般的-break-语句"></a> 一般的 break 语句</h5>
+<p>一般的 brreak 语句的功能是将程序流程转向所在结构之后。在 switch 语句中，break 语句使控制跳转到该 switch 语句之后。在循环语句中，break 语句使控制跳出跳出包含它当前的循环层，并从循环之后的第一条语句继续执行。它不能用于循环语句和 switch 语句之外的任何地方。</p>
+<p>使用格式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">break</span>;</span><br></pre></td></tr></table></figure>
+<p>例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 判断一个数是否为素数。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PrimeTestOne</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 产生一个[2, 1002）内的正整数</span></span><br><span class="line">        <span class="keyword">int</span> number = (<span class="keyword">int</span>) (Math.random() * <span class="number">1000</span>) + <span class="number">2</span>;</span><br><span class="line">        <span class="comment">// 求平方根</span></span><br><span class="line">        <span class="keyword">int</span> sqrt = (<span class="keyword">int</span>) Math.sqrt(number);                 </span><br><span class="line">        <span class="keyword">int</span> i;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">2</span>; i &lt;= sqrt; i++) &#123;</span><br><span class="line">            <span class="comment">// 如果能被整除，则不是素数，立即跳出循环</span></span><br><span class="line">            <span class="keyword">if</span> (number % i == <span class="number">0</span>) &#123;                          </span><br><span class="line">                <span class="keyword">break</span>;                                      </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (i &gt; sqrt) &#123;</span><br><span class="line">            System.out.println(number + <span class="string">"是素数"</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(number + <span class="string">"不是素数"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>程序的一次运行结果为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">139</span>是素数</span><br></pre></td></tr></table></figure>
+<h5 id="带标号的-break-语句"><a class="markdownIt-Anchor" href="#带标号的-break-语句"></a> 带标号的 break 语句</h5>
+<p>Java 没有提供饱受争议的 goto 语句，而是为 break 语句提供了标号功能。所谓标号，就是标记某一条语句的位置。</p>
+<p>使用格式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;标号&gt; : &lt;语句&gt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">break</span> &lt;标号&gt;;</span><br></pre></td></tr></table></figure>
+<p>当执行到本条语句时，立即跳出标号所标记的语句。对于 break 而言，所标记的语句只能是包含本 break 语句的内层或者外层循环语句。</p>
+<p>因此，上述例子也可以改写为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 判断一个数是否为素数。</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PrimeTestTwo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 产生一个[2, 1002）内的正整数</span></span><br><span class="line">        <span class="keyword">int</span> number = (<span class="keyword">int</span>) (Math.random() * <span class="number">1000</span>) + <span class="number">2</span>;</span><br><span class="line">        <span class="comment">// 求平方根</span></span><br><span class="line">        <span class="keyword">int</span> sqrt = (<span class="keyword">int</span>) Math.sqrt(number);</span><br><span class="line">        <span class="keyword">int</span> i;</span><br><span class="line"></span><br><span class="line">        outer:</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">2</span>; i &lt;= sqrt; i++) &#123;</span><br><span class="line">            <span class="comment">// 如果能被整除，则不是素数，立即跳出循环</span></span><br><span class="line">            <span class="keyword">if</span> (number % i == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">break</span> outer;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (i &gt; sqrt) &#123;</span><br><span class="line">            System.out.println(number + <span class="string">"是素数"</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(number + <span class="string">"不是素数"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>虽然使用了带标记的 break 语句，但是这两个程序是完全等价的。</p>
+<h4 id="跳转语句-continue"><a class="markdownIt-Anchor" href="#跳转语句-continue"></a> 跳转语句 continue</h4>
+<p>continue 语句的功能是使当前执行的循环体终止，即跳过 continue 语句后面尚未执行的语句，但不结束整个循环，而是继续执行下一轮循环。</p>
+<h5 id="一般的-continue-语句"><a class="markdownIt-Anchor" href="#一般的-continue-语句"></a> 一般的 continue 语句</h5>
+<p>它的使用方式与 一般 break 语句的使用方式相同。即：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">continue</span>;</span><br></pre></td></tr></table></figure>
+<p>需要注意，continue语句只能出现在循环体中。</p>
+<h5 id="带标号的-continue-语句"><a class="markdownIt-Anchor" href="#带标号的-continue-语句"></a> 带标号的 continue 语句</h5>
+<p>coutinue 后面也可以跟标号，它的使用与带标号的 break 语句的使用方式相同。即：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;标号&gt; : &lt;语句&gt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">continue</span> &lt;标号&gt;;</span><br></pre></td></tr></table></figure>
+<p>如果标号所标记的是包含 continue 的外层循环，则内存循环被终止，计算外层循环的条件判断语句，以确定是否进行下一次循环。</p>
+
+      </div>
+        
+          <section class="meta" id="footer-meta">
+            <hr>
+            <div class="new-meta-box">
+              
+                <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-03-17T20:15:54+08:00">
+                  <a class="notlink">
+                    <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+                    2019-03-17
+                  </a>
+                </div>
+              
+              
+                
+                <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Java/"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;Java</a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Java-SE/"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;Java SE</a></div>
+              
+              
+                
+  <div class="new-meta-item share -mob-share-list">
+    <i class="fas fa-share-alt" aria-hidden="true"></i>
+    <div class="-mob-share-list share-body">
+      
+        
+          <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.luckylight6.com/2016/09/17/Java SE学习/Java SE学习（五）之Java的基础语法（下）/&title=Java SE学习（五）之Java的基础语法（下） | LuckyLight's blog&summary=">
+            
+              <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qq.png">
+            
+          </a>
+        
+      
+        
+          <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://blog.luckylight6.com/2016/09/17/Java SE学习/Java SE学习（五）之Java的基础语法（下）/&title=Java SE学习（五）之Java的基础语法（下） | LuckyLight's blog&summary=">
+            
+              <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qzone.png">
+            
+          </a>
+        
+      
+        
+          <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=http://blog.luckylight6.com/2016/09/17/Java SE学习/Java SE学习（五）之Java的基础语法（下）/&title=Java SE学习（五）之Java的基础语法（下） | LuckyLight's blog&summary=">
+            
+              <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/weibo.png">
+            
+          </a>
+        
+      
+    </div>
+  </div>
+
+
+              
+            </div>
+          </section>
+        
+
+        
+            <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
+                            <h4>
+                                <a href="/2016/10/11/实战/Servlet 实现文件上传/" rel="prev" title="Servlet 实现文件上传">
+                                  
+                                      Servlet 实现文件上传
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/Java/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Java</a> <a class="tag" href="/tags/Servlet/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Servlet</a> <a class="tag" href="/tags/Web/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Web</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2016/09/16/Java SE学习/Java SE学习（四）之Java的基础语法（中）/" rel="prev" title="Java SE学习（四）之Java的基础语法（中）">
+                                    
+                                        Java SE学习（四）之Java的基础语法（中）
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/Java/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Java</a> <a class="tag" href="/tags/Java-SE/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Java SE</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+
+    </section>
+
+</article>
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+
+
+
+
+<script>
+    window.subData = {
+        title: 'Java SE学习（五）之Java的基础语法（下）',
+        tools: true
+    }
+</script>
+
+
+        </div>
+        <aside class='l_side'>
+            
+  
+  
+    
+      
+      
+        
+  <section class="toc-wrapper">
+    
+<header class="pure">
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;文章目录</div>
+  
+    <div class="wrapper"><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+  
+</header>
+
+    <div class="content pure">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java-se学习五之java的基础语法下"><span class="toc-text"> Java SE学习（五）之Java的基础语法（下）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#流程控制语句"><span class="toc-text"> 流程控制语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#表达式语句"><span class="toc-text"> 表达式语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#复合语句"><span class="toc-text"> 复合语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分支语句"><span class="toc-text"> 分支语句</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#if-语句"><span class="toc-text"> if 语句</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#单一的-if-语句"><span class="toc-text"> 单一的 if 语句</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ifelse-语句"><span class="toc-text"> if…else 语句</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ifelse-ifelse-语句"><span class="toc-text"> if…else if…else 语句</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#嵌套-if-语句"><span class="toc-text"> 嵌套 if 语句</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#switch-语句"><span class="toc-text"> switch 语句</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#循环语句"><span class="toc-text"> 循环语句</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#while-循环"><span class="toc-text"> while 循环</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dowhile-循环"><span class="toc-text"> do…while 循环</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#for-循环"><span class="toc-text"> for 循环</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#增强-for-循环"><span class="toc-text"> 增强 for 循环</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#跳转语句"><span class="toc-text"> 跳转语句</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#跳转语句-break"><span class="toc-text"> 跳转语句 break</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#一般的-break-语句"><span class="toc-text"> 一般的 break 语句</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#带标号的-break-语句"><span class="toc-text"> 带标号的 break 语句</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#跳转语句-continue"><span class="toc-text"> 跳转语句 continue</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#一般的-continue-语句"><span class="toc-text"> 一般的 continue 语句</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#带标号的-continue-语句"><span class="toc-text"> 带标号的 continue 语句</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+    </div>
+  </section>
+
+
+      
+    
+  
+    
+      
+      
+        <section class="author">
+  <div class="content pure">
+    
+      <div class="avatar">
+        <img class="avatar" src="https://avatars2.githubusercontent.com/u/22209857">
+      </div>
+    
+    
+      <div class="text">
+        
+        
+        
+          <p><span id="jinrishici-sentence">LuckyLight's blog</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="https://github.com/LuckyLight6" class="social flat-btn" target="_blank" rel="external"><i class="social fab fa-github" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://weibo.com/u/5448313634" class="social flat-btn" target="_blank" rel="external"><i class="social fab fa-weibo" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://music.163.com/#/user/home?id=70457238" class="social flat-btn" target="_blank" rel="external"><i class="social fas fa-music" aria-hidden="true"></i></a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+      
+    
+  
+    
+      
+      
+        
+
+
+  <section class="music">
+    
+<header class="pure">
+  <div><i class="fas fa-compact-disc fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;最近在听</div>
+  
+    <a class="rightBtn" target="_blank" rel="external nofollow noopener noreferrer" href="https://music.163.com/#/user/home?id=70457238" title="https://music.163.com/#/user/home?id=70457238">
+    <i class="far fa-heart fa-fw"></i></a>
+  
+</header>
+
+    <div class="content pure">
+      
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.css">
+  <div class="aplayer" data-theme="#1bc3fb" data-mode="circulation" data-server="netease" data-type="playlist" data-id="75180857" data-volume="1">
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"></script>
+
+
+    </div>
+  </section>
+
+
+      
+    
+  
+    
+      
+      
+        
+  <section class="category">
+    
+<header class="pure">
+  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;所有分类</div>
+  
+</header>
+
+    <div class="content pure">
+      <ul class="entry">
+        
+          <li><a class="flat-box" title="/categories/Java-SE学习/" href="/categories/Java-SE学习/"><div class="name">Java SE学习</div><div class="badge">(5)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Linux/" href="/categories/Linux/"><div class="name">Linux</div><div class="badge">(7)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Spring-Boot/" href="/categories/Spring-Boot/"><div class="name">Spring Boot</div><div class="badge">(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/夯实-Java-基础/" href="/categories/夯实-Java-基础/"><div class="name">夯实 Java 基础</div><div class="badge">(4)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/实战/" href="/categories/实战/"><div class="name">实战</div><div class="badge">(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/工具/" href="/categories/工具/"><div class="name">工具</div><div class="badge">(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/记录/" href="/categories/记录/"><div class="name">记录</div><div class="badge">(1)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+      
+    
+  
+    
+      
+      
+        
+  <section class="tagcloud">
+    
+<header class="pure">
+  <div><i class="fas fa-fire fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;热门标签</div>
+  
+</header>
+
+    <div class="content pure">
+      <a href="/tags/JDK/" style="font-size: 16.5px; color: #888">JDK</a> <a href="/tags/JSON/" style="font-size: 14px; color: #999">JSON</a> <a href="/tags/Java/" style="font-size: 24px; color: #555">Java</a> <a href="/tags/Java-SE/" style="font-size: 21.5px; color: #666">Java SE</a> <a href="/tags/KaTeX/" style="font-size: 14px; color: #999">KaTeX</a> <a href="/tags/Linux/" style="font-size: 19px; color: #777">Linux</a> <a href="/tags/Markdown/" style="font-size: 14px; color: #999">Markdown</a> <a href="/tags/MathJax/" style="font-size: 14px; color: #999">MathJax</a> <a href="/tags/MySQL/" style="font-size: 14px; color: #999">MySQL</a> <a href="/tags/Servlet/" style="font-size: 16.5px; color: #888">Servlet</a> <a href="/tags/Spring-Boot/" style="font-size: 16.5px; color: #888">Spring Boot</a> <a href="/tags/Tomcat/" style="font-size: 16.5px; color: #888">Tomcat</a> <a href="/tags/Web/" style="font-size: 16.5px; color: #888">Web</a> <a href="/tags/fastjson/" style="font-size: 14px; color: #999">fastjson</a>
+    </div>
+  </section>
+
+
+      
+    
+  
+
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+    <footer id="footer" class="clearfix">
+  
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="https://github.com/LuckyLight6" class="social fab fa-github flat-btn" target="_blank" rel="external"></a>
+        
+      
+        
+          <a href="https://weibo.com/u/5448313634" class="social fab fa-weibo flat-btn" target="_blank" rel="external"></a>
+        
+      
+        
+          <a href="https://music.163.com/#/user/home?id=70457238" class="social fas fa-music flat-btn" target="_blank" rel="external"></a>
+        
+      
+    </div>
+  
+  <br>
+  <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+  <div>本站使用 <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a> 作为主题，总访问量为 <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> 次。
+  </div>
+</footer>
+
+    <script>setLoadingBarProgress(80);</script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+
+  
+    <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        const $reveal = $('.reveal');
+    		if ($reveal.length === 0) return;
+    		const sr = ScrollReveal({ distance: 0 });
+    		sr.reveal('.reveal');
+      });
+    </script>
+  
+  
+    <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        Waves.attach('.flat-btn', ['waves-button']);
+        Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+        Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+        Waves.attach('.flat-box', ['waves-block']);
+        Waves.attach('.float-box', ['waves-block', 'waves-float']);
+        Waves.attach('.waves-image');
+        Waves.init();
+      });
+    </script>
+  
+  
+    <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+  
+  
+  
+
+  
+  
+  
+    <script src="/js/app.js"></script>
+<script src="/js/search.js"></script>
+  
+
+
+
+
+
+
+    <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

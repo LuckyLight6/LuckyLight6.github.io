@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>Java SE学习（二）之第一个Java程序 | LuckyLight&#39;s blog</title>
+  
+  <meta name="keywords" content="LuckyLight, Blog, Java">
+  
+  
+
+  
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+
+  <!-- link -->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.6.3/css/all.min.css">
+  
+
+  
+  <link rel="shortcut icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/22209857">
+  
+
+  
+  <link rel="stylesheet" href="/style.css">
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width = num + "%";
+    }
+  </script>
+
+  
+  
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
+</div>
+
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class="wrapper">
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href="/">
+        
+          LuckyLight's blog
+        
+      </a>
+			<div class="menu">
+				<ul class="h-list">
+          
+  					
+  						<li>
+								<a id="home" class="nav flat-box" href="/">
+									<i class="fas fa-home fa-fw"></i>&nbsp;首页
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="archives" class="nav flat-box" href="/archives/">
+									<i class="fas fa-archive fa-fw"></i>&nbsp;归档
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="categories" class="nav flat-box" href="/categories/">
+									<i class="fas fa-folder-open fa-fw"></i>&nbsp;分类
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="tags" class="nav flat-box" href="/tags/">
+									<i class="fas fa-tags fa-fw"></i>&nbsp;标签
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="books" class="nav flat-box" href="/books/">
+									<i class="fas fa-book fa-fw"></i>&nbsp;读书
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="movies" class="nav flat-box" href="/movies/">
+									<i class="fas fa-film fa-fw"></i>&nbsp;电影
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="links" class="nav flat-box" href="/links/">
+									<i class="fas fa-user-friends fa-fw"></i>&nbsp;友链
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="about" class="nav flat-box" href="/about/">
+									<i class="fas fa-grin-alt fa-fw"></i>&nbsp;关于
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="搜索">
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class="switcher h-list">
+				
+					<li class="s-search"><a class="fas fa-search fa-fw" href="javascript:void(0)"></a></li>
+				
+				<li class="s-menu"><a class="fas fa-bars fa-fw" href="javascript:void(0)"></a></li>
+			</ul>
+		</div>
+
+		<div class="nav-sub container container--flex">
+			<a class="logo flat-box"></a>
+			<ul class="switcher h-list">
+				<li class="s-comment"><a class="flat-btn fas fa-comments fa-fw" href="javascript:void(0)"></a></li>
+				<li class="s-toc"><a class="flat-btn fas fa-list fa-fw" href="javascript:void(0)"></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu">
+      <ul>
+          
+              
+                  <li>
+										<a id="home" class="nav flat-box" href="/">
+											<i class="fas fa-home fa-fw"></i>&nbsp;首页
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="archives" class="nav flat-box" href="/archives/">
+											<i class="fas fa-archive fa-fw"></i>&nbsp;归档
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="categories" class="nav flat-box" href="/categories/">
+											<i class="fas fa-folder-open fa-fw"></i>&nbsp;分类
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="tags" class="nav flat-box" href="/tags/">
+											<i class="fas fa-tags fa-fw"></i>&nbsp;标签
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="books" class="nav flat-box" href="/books/">
+											<i class="fas fa-book fa-fw"></i>&nbsp;读书
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="movies" class="nav flat-box" href="/movies/">
+											<i class="fas fa-film fa-fw"></i>&nbsp;电影
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="links" class="nav flat-box" href="/links/">
+											<i class="fas fa-user-friends fa-fw"></i>&nbsp;友链
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="about" class="nav flat-box" href="/about/">
+											<i class="fas fa-grin-alt fa-fw"></i>&nbsp;关于
+										</a>
+                  </li>
+              
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+  
+<section class="meta">
+  
+  
+  <div class="meta" id="header-meta">
+    
+      
+          <h1 class="title">Java SE学习（二）之第一个Java程序</h1>
+      
+    
+
+    <div class="new-meta-box">
+      
+        <div class="new-meta-item author">
+          <a href="http://blog.luckylight6.com">
+            <i class="fas fa-user" aria-hidden="true"></i>
+            LuckyLight
+          </a>
+        </div>
+      
+      
+        <div class="new-meta-item date">
+          <a class="notlink">
+            <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+            2016-09-14
+          </a>
+        </div>
+      
+      
+        
+          
+          <div class="new-meta-item category">
+            <a href="/categories/Java-SE学习/">
+              <i class="fas fa-folder-open" aria-hidden="true"></i>
+              Java SE学习
+            </a>
+          </div>
+        
+      
+      
+        
+          <div class="new-meta-item browse busuanzi">
+            <a class="notlink">
+              <i class="fas fa-eye" aria-hidden="true"></i>
+              <span id="busuanzi_value_page_pv">
+                <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+              </span>
+            </a>
+          </div>
+        
+      
+      
+    </div>
+    <hr>
+  </div>
+</section>
+
+    <section class="article typo">
+      <div class="article-entry" itemprop="articleBody">
+        <p><img src="https://i.loli.net/2019/03/09/5c83b95443c94.png" alt></p>
+<a id="more"></a>
+<h1 id="第一个java程序"><a class="markdownIt-Anchor" href="#第一个java程序"></a> 第一个Java程序</h1>
+<p>对于初学者来说，第一个 Java 程序太神秘，也太难了，因为需要在第一个程序中学到很多的操作，而且在操作的过程中，即使是一个很小的错误，都可以让初学者束手无策，所以学习第一个 Java 程序，一点都不简单，也需要足够的细心和耐心。</p>
+<h2 id="编辑第一个-java-程序"><a class="markdownIt-Anchor" href="#编辑第一个-java-程序"></a> 编辑第一个 Java 程序</h2>
+<p>Java 源代码可以在任意文本编辑器中进行，可以直接使用 Windows 自带的记事本，也可以使用 EditPlus，UltraEdit 等高级文本编辑工具来编写 Java 程序，还可以使用专业的 IDE（Integrated Development Environment）编写。</p>
+<p>刚开始编写 Java 程序，最好使用记事本来编写，最好不要使用高级的 IDE 工具，以免造成依赖。</p>
+<p>Windows 打开记事本程序的步骤如下：开始 &gt; 程序 &gt; 附件 &gt; 记事本。</p>
+<p>然后就可以在新打开的记事本中进行代码编辑了。</p>
+<p>下面是第一个 Java 程序：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Hello World"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意：<br>
+1、Java 源代码中的字母区分大小写。<br>
+2、Java 源代码中的标点符号均为半角字符，即英文输入模式下的标点符号。<br>
+3、Java 源代码中缩进只是为了美观和方便阅读，在实际编译时，会删除代码中每行开始和每行结束的所有空格。</p>
+<h2 id="保存第一个-java-程序"><a class="markdownIt-Anchor" href="#保存第一个-java-程序"></a> 保存第一个 Java 程序</h2>
+<p>在记事本中保存代码的操作步骤如下：</p>
+<ol>
+<li>选择记事本的 文件 &gt; 保存</li>
+<li>选择想要保存的路径</li>
+<li>保存类型设置为“所有文件”</li>
+<li>文件名为 <code>HelloWorld.java</code></li>
+<li>选择“保存”按钮保存即可</li>
+</ol>
+<p>注意：<br>
+1、所有的 Java 代码，其后缀名都是 <code>.java</code>。<br>
+2、一个 Java 文件中只能有一个 public 类。<br>
+3、如果文件中不止一个类，文件名必须与 public 类名一致；如果文件中不止一个类，而且没有 public 类，文件名可与任一类名一致。</p>
+<h2 id="编译第一个-java-程序"><a class="markdownIt-Anchor" href="#编译第一个-java-程序"></a> 编译第一个 Java 程序</h2>
+<p>源代码编写保存后，就可以使用 JDK 中的编译工具来编译程序了。</p>
+<p>所谓编译，就是将程序的源代码编译成可执行文件，Java 语言的可执行文件是后缀名为 <code>.classs</code> 的文件，称为类文件或字节码（bytecode）文件。</p>
+<p>编译源代码的工具是 JDK 中 bin 目录下的 <code>javac.exe</code> 文件。</p>
+<p>在命令行下编译程序的步骤如下：</p>
+<ol>
+<li>打开命令提示符窗口<br>
+方式一：开始 &gt; 程序 &gt; 附件 &gt; 命令提示符。<br>
+方式二：开始 &gt; 运行 ，则输入框中输入 <code>cmd</code> 命令打开该窗口。</li>
+<li>切换到源代码保存目录<br>
+首先在命令行中输入 <code>D:</code>，按回车键切换到 D 盘<br>
+然后输入 <code>cd java</code> 切换到源代码的保存路径。<br>
+则命令提示符中的提示是：<code>D:/java&gt;</code>。</li>
+<li>输入编译命令<br>
+命令格式为： <code>javac 源文件全名</code><br>
+例如：<code>javac HelloWorld.java</code></li>
+<li>按回车键执行该命令，如果没有任何提示，则代表编译成功，在源代码所在目录下生成 <code>HelloWorld.class</code> 文件，如果有一系列提示，则代表有语法错误，可以仔细检查代码书写是否有错，以及文件名或者路径是否有错。</li>
+</ol>
+<p>注意：源文件全名区分大小写。</p>
+<h2 id="执行第一个-java-程序"><a class="markdownIt-Anchor" href="#执行第一个-java-程序"></a> 执行第一个 Java 程序</h2>
+<p>编译成功以后，就可以使用 JDK 中 bin 下的运行命令 <code>java.exe</code>，运行生成的程序了。运行时，执行的是class文件，即字节码文件。</p>
+<p>运行的步骤如下：</p>
+<ol>
+<li>切换到 class 文件所在的目录</li>
+<li>输入运行命令<br>
+命令格式：<code>java class文件名(不带后缀名)</code><br>
+例如：<code>java HelloWorld</code></li>
+<li>按回车键执行该命令，然后就可以在命令提示符窗口中，看到第一个 Java 程序的执行结果了，也就是在命令提示符窗口中输出一行字符：<br>
+<code>Hello World</code></li>
+</ol>
+<h2 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h2>
+<p>如此，第一个 Java 程序就完成了，对于初学者来说也许很困难，但只要坚持不懈，专心致志地学习、练习，相信聪明的你一定能够成功！</p>
+
+      </div>
+        
+          <section class="meta" id="footer-meta">
+            <hr>
+            <div class="new-meta-box">
+              
+                <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-03-17T20:15:54+08:00">
+                  <a class="notlink">
+                    <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+                    2019-03-17
+                  </a>
+                </div>
+              
+              
+                
+                <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Java/"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;Java</a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Java-SE/"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;Java SE</a></div>
+              
+              
+                
+  <div class="new-meta-item share -mob-share-list">
+    <i class="fas fa-share-alt" aria-hidden="true"></i>
+    <div class="-mob-share-list share-body">
+      
+        
+          <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.luckylight6.com/2016/09/14/Java SE学习/Java SE学习（二）之第一个Java程序/&title=Java SE学习（二）之第一个Java程序 | LuckyLight's blog&summary=">
+            
+              <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qq.png">
+            
+          </a>
+        
+      
+        
+          <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://blog.luckylight6.com/2016/09/14/Java SE学习/Java SE学习（二）之第一个Java程序/&title=Java SE学习（二）之第一个Java程序 | LuckyLight's blog&summary=">
+            
+              <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qzone.png">
+            
+          </a>
+        
+      
+        
+          <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=http://blog.luckylight6.com/2016/09/14/Java SE学习/Java SE学习（二）之第一个Java程序/&title=Java SE学习（二）之第一个Java程序 | LuckyLight's blog&summary=">
+            
+              <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/weibo.png">
+            
+          </a>
+        
+      
+    </div>
+  </div>
+
+
+              
+            </div>
+          </section>
+        
+
+        
+            <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
+                            <h4>
+                                <a href="/2016/09/15/Java SE学习/Java SE学习（三）之Java的基础语法（上）/" rel="prev" title="Java SE学习（三）之Java的基础语法（上）">
+                                  
+                                      Java SE学习（三）之Java的基础语法（上）
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/Java/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Java</a> <a class="tag" href="/tags/Java-SE/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Java SE</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2016/09/13/Java SE学习/Java SE学习（一）之Java简介与Java开发环境配置/" rel="prev" title="Java SE学习（一）之Java简介与Java开发环境配置">
+                                    
+                                        Java SE学习（一）之Java简介与Java开发环境配置
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/JDK/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>JDK</a> <a class="tag" href="/tags/Java/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Java</a> <a class="tag" href="/tags/Java-SE/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Java SE</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+
+    </section>
+
+</article>
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+
+
+
+
+<script>
+    window.subData = {
+        title: 'Java SE学习（二）之第一个Java程序',
+        tools: true
+    }
+</script>
+
+
+        </div>
+        <aside class='l_side'>
+            
+  
+  
+    
+      
+      
+        
+  <section class="toc-wrapper">
+    
+<header class="pure">
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;文章目录</div>
+  
+    <div class="wrapper"><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+  
+</header>
+
+    <div class="content pure">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第一个java程序"><span class="toc-text"> 第一个Java程序</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#编辑第一个-java-程序"><span class="toc-text"> 编辑第一个 Java 程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#保存第一个-java-程序"><span class="toc-text"> 保存第一个 Java 程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编译第一个-java-程序"><span class="toc-text"> 编译第一个 Java 程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#执行第一个-java-程序"><span class="toc-text"> 执行第一个 Java 程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text"> 总结</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+      
+    
+  
+    
+      
+      
+        <section class="author">
+  <div class="content pure">
+    
+      <div class="avatar">
+        <img class="avatar" src="https://avatars2.githubusercontent.com/u/22209857">
+      </div>
+    
+    
+      <div class="text">
+        
+        
+        
+          <p><span id="jinrishici-sentence">LuckyLight's blog</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="https://github.com/LuckyLight6" class="social flat-btn" target="_blank" rel="external"><i class="social fab fa-github" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://weibo.com/u/5448313634" class="social flat-btn" target="_blank" rel="external"><i class="social fab fa-weibo" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://music.163.com/#/user/home?id=70457238" class="social flat-btn" target="_blank" rel="external"><i class="social fas fa-music" aria-hidden="true"></i></a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+      
+    
+  
+    
+      
+      
+        
+
+
+  <section class="music">
+    
+<header class="pure">
+  <div><i class="fas fa-compact-disc fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;最近在听</div>
+  
+    <a class="rightBtn" target="_blank" rel="external nofollow noopener noreferrer" href="https://music.163.com/#/user/home?id=70457238" title="https://music.163.com/#/user/home?id=70457238">
+    <i class="far fa-heart fa-fw"></i></a>
+  
+</header>
+
+    <div class="content pure">
+      
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.css">
+  <div class="aplayer" data-theme="#1bc3fb" data-mode="circulation" data-server="netease" data-type="playlist" data-id="75180857" data-volume="1">
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"></script>
+
+
+    </div>
+  </section>
+
+
+      
+    
+  
+    
+      
+      
+        
+  <section class="category">
+    
+<header class="pure">
+  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;所有分类</div>
+  
+</header>
+
+    <div class="content pure">
+      <ul class="entry">
+        
+          <li><a class="flat-box" title="/categories/Java-SE学习/" href="/categories/Java-SE学习/"><div class="name">Java SE学习</div><div class="badge">(5)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Linux/" href="/categories/Linux/"><div class="name">Linux</div><div class="badge">(7)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Spring-Boot/" href="/categories/Spring-Boot/"><div class="name">Spring Boot</div><div class="badge">(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/夯实-Java-基础/" href="/categories/夯实-Java-基础/"><div class="name">夯实 Java 基础</div><div class="badge">(4)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/实战/" href="/categories/实战/"><div class="name">实战</div><div class="badge">(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/工具/" href="/categories/工具/"><div class="name">工具</div><div class="badge">(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/记录/" href="/categories/记录/"><div class="name">记录</div><div class="badge">(1)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+      
+    
+  
+    
+      
+      
+        
+  <section class="tagcloud">
+    
+<header class="pure">
+  <div><i class="fas fa-fire fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;热门标签</div>
+  
+</header>
+
+    <div class="content pure">
+      <a href="/tags/JDK/" style="font-size: 16.5px; color: #888">JDK</a> <a href="/tags/JSON/" style="font-size: 14px; color: #999">JSON</a> <a href="/tags/Java/" style="font-size: 24px; color: #555">Java</a> <a href="/tags/Java-SE/" style="font-size: 21.5px; color: #666">Java SE</a> <a href="/tags/KaTeX/" style="font-size: 14px; color: #999">KaTeX</a> <a href="/tags/Linux/" style="font-size: 19px; color: #777">Linux</a> <a href="/tags/Markdown/" style="font-size: 14px; color: #999">Markdown</a> <a href="/tags/MathJax/" style="font-size: 14px; color: #999">MathJax</a> <a href="/tags/MySQL/" style="font-size: 14px; color: #999">MySQL</a> <a href="/tags/Servlet/" style="font-size: 16.5px; color: #888">Servlet</a> <a href="/tags/Spring-Boot/" style="font-size: 16.5px; color: #888">Spring Boot</a> <a href="/tags/Tomcat/" style="font-size: 16.5px; color: #888">Tomcat</a> <a href="/tags/Web/" style="font-size: 16.5px; color: #888">Web</a> <a href="/tags/fastjson/" style="font-size: 14px; color: #999">fastjson</a>
+    </div>
+  </section>
+
+
+      
+    
+  
+
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+    <footer id="footer" class="clearfix">
+  
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="https://github.com/LuckyLight6" class="social fab fa-github flat-btn" target="_blank" rel="external"></a>
+        
+      
+        
+          <a href="https://weibo.com/u/5448313634" class="social fab fa-weibo flat-btn" target="_blank" rel="external"></a>
+        
+      
+        
+          <a href="https://music.163.com/#/user/home?id=70457238" class="social fas fa-music flat-btn" target="_blank" rel="external"></a>
+        
+      
+    </div>
+  
+  <br>
+  <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+  <div>本站使用 <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a> 作为主题，总访问量为 <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> 次。
+  </div>
+</footer>
+
+    <script>setLoadingBarProgress(80);</script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+
+  
+    <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        const $reveal = $('.reveal');
+    		if ($reveal.length === 0) return;
+    		const sr = ScrollReveal({ distance: 0 });
+    		sr.reveal('.reveal');
+      });
+    </script>
+  
+  
+    <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        Waves.attach('.flat-btn', ['waves-button']);
+        Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+        Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+        Waves.attach('.flat-box', ['waves-block']);
+        Waves.attach('.float-box', ['waves-block', 'waves-float']);
+        Waves.attach('.waves-image');
+        Waves.init();
+      });
+    </script>
+  
+  
+    <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+  
+  
+  
+
+  
+  
+  
+    <script src="/js/app.js"></script>
+<script src="/js/search.js"></script>
+  
+
+
+
+
+
+
+    <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

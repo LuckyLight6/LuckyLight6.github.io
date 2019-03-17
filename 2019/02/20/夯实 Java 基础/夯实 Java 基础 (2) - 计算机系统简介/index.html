@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>夯实 Java 基础 (2) - 计算机系统简介 | LuckyLight&#39;s blog</title>
+  
+  <meta name="keywords" content="LuckyLight, Blog, Java">
+  
+  
+
+  
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+
+  <!-- link -->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.6.3/css/all.min.css">
+  
+
+  
+  <link rel="shortcut icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/22209857">
+  
+
+  
+  <link rel="stylesheet" href="/style.css">
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width = num + "%";
+    }
+  </script>
+
+  
+  
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
+</div>
+
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class="wrapper">
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href="/">
+        
+          LuckyLight's blog
+        
+      </a>
+			<div class="menu">
+				<ul class="h-list">
+          
+  					
+  						<li>
+								<a id="home" class="nav flat-box" href="/">
+									<i class="fas fa-home fa-fw"></i>&nbsp;首页
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="archives" class="nav flat-box" href="/archives/">
+									<i class="fas fa-archive fa-fw"></i>&nbsp;归档
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="categories" class="nav flat-box" href="/categories/">
+									<i class="fas fa-folder-open fa-fw"></i>&nbsp;分类
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="tags" class="nav flat-box" href="/tags/">
+									<i class="fas fa-tags fa-fw"></i>&nbsp;标签
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="books" class="nav flat-box" href="/books/">
+									<i class="fas fa-book fa-fw"></i>&nbsp;读书
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="movies" class="nav flat-box" href="/movies/">
+									<i class="fas fa-film fa-fw"></i>&nbsp;电影
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="links" class="nav flat-box" href="/links/">
+									<i class="fas fa-user-friends fa-fw"></i>&nbsp;友链
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="about" class="nav flat-box" href="/about/">
+									<i class="fas fa-grin-alt fa-fw"></i>&nbsp;关于
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="搜索">
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class="switcher h-list">
+				
+					<li class="s-search"><a class="fas fa-search fa-fw" href="javascript:void(0)"></a></li>
+				
+				<li class="s-menu"><a class="fas fa-bars fa-fw" href="javascript:void(0)"></a></li>
+			</ul>
+		</div>
+
+		<div class="nav-sub container container--flex">
+			<a class="logo flat-box"></a>
+			<ul class="switcher h-list">
+				<li class="s-comment"><a class="flat-btn fas fa-comments fa-fw" href="javascript:void(0)"></a></li>
+				<li class="s-toc"><a class="flat-btn fas fa-list fa-fw" href="javascript:void(0)"></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu">
+      <ul>
+          
+              
+                  <li>
+										<a id="home" class="nav flat-box" href="/">
+											<i class="fas fa-home fa-fw"></i>&nbsp;首页
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="archives" class="nav flat-box" href="/archives/">
+											<i class="fas fa-archive fa-fw"></i>&nbsp;归档
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="categories" class="nav flat-box" href="/categories/">
+											<i class="fas fa-folder-open fa-fw"></i>&nbsp;分类
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="tags" class="nav flat-box" href="/tags/">
+											<i class="fas fa-tags fa-fw"></i>&nbsp;标签
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="books" class="nav flat-box" href="/books/">
+											<i class="fas fa-book fa-fw"></i>&nbsp;读书
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="movies" class="nav flat-box" href="/movies/">
+											<i class="fas fa-film fa-fw"></i>&nbsp;电影
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="links" class="nav flat-box" href="/links/">
+											<i class="fas fa-user-friends fa-fw"></i>&nbsp;友链
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="about" class="nav flat-box" href="/about/">
+											<i class="fas fa-grin-alt fa-fw"></i>&nbsp;关于
+										</a>
+                  </li>
+              
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+  
+<section class="meta">
+  
+  
+  <div class="meta" id="header-meta">
+    
+      
+          <h1 class="title">夯实 Java 基础 (2) - 计算机系统简介</h1>
+      
+    
+
+    <div class="new-meta-box">
+      
+        <div class="new-meta-item author">
+          <a href="http://blog.luckylight6.com">
+            <i class="fas fa-user" aria-hidden="true"></i>
+            LuckyLight
+          </a>
+        </div>
+      
+      
+        <div class="new-meta-item date">
+          <a class="notlink">
+            <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+            2019-02-20
+          </a>
+        </div>
+      
+      
+        
+          
+          <div class="new-meta-item category">
+            <a href="/categories/夯实-Java-基础/">
+              <i class="fas fa-folder-open" aria-hidden="true"></i>
+              夯实 Java 基础
+            </a>
+          </div>
+        
+      
+      
+        
+          <div class="new-meta-item browse busuanzi">
+            <a class="notlink">
+              <i class="fas fa-eye" aria-hidden="true"></i>
+              <span id="busuanzi_value_page_pv">
+                <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+              </span>
+            </a>
+          </div>
+        
+      
+      
+    </div>
+    <hr>
+  </div>
+</section>
+
+    <section class="article typo">
+      <div class="article-entry" itemprop="articleBody">
+        <p><img src="https://i.loli.net/2019/03/09/5c83b9057251a.png" alt></p>
+<a id="more"></a>
+<blockquote>
+<p>计算机系统就像一个交响乐团，把许多不同的元素组织在一起，构成了一个整体，但这个整体的功能却远远大于各个部件的功能总和。</p>
+</blockquote>
+<h2 id="计算机系统"><a class="markdownIt-Anchor" href="#计算机系统"></a> 计算机系统</h2>
+<p>计算机是一种设备，而计算机系统则是一种动态实体，用于解决问题以及与它所处的环境进行交互。计算机系统由软件、硬件和它们管理的数据构成。</p>
+<p>计算机硬件是构成机器及其附件（包括机箱、电路板、芯片、电线、硬盘驱动器、键盘、显示器、打印机，等等）的物理元件集合。计算机软件是提供计算机执行的指令的程序集合。计算机的核心是它管理的数据。如果没有数据，硬件和软件都毫无作用。</p>
+<h2 id="计算机系统的分层"><a class="markdownIt-Anchor" href="#计算机系统的分层"></a> 计算机系统的分层</h2>
+<p>计算机系统就像一个洋葱，由许多层构成。每个分层在整个系统设计中都扮演一个特定的角色。</p>
+<p><img src="https://i.loli.net/2019/03/05/5c7e0e17c28af.png" alt="计算系统的分层"></p>
+<p>最内层的信息层反映了在计算机上表示信息的方式，它是一个纯概念层。计算机上的信息采用二进制数字 1 和 0 管理。所以，要理解计算机处理技术，首先必须理解二进制数制以及它与其它数制（如人们日常使用的十进制数制）的关系。然后了解如何获取多种类型（如数字、文本、图像、音频和视频）的信息，以及如何用二进制格式表示它们。</p>
+<p>硬件层由计算机系统的物理硬件组成。计算机硬件包括的设备有门和电路，它们都按照基本原理控制电流。正是这些核心电路，使专用的元件（如计算机的中央处理器 CPU 和存储器）得以运转。</p>
+<p>程序设计层负责处理软件、用以实现计算的指令和以及管理数据。程序有多种形式，可以在许多层面上执行，由各种语言实现。尽管程序设计问题多种多样，但是它们的目的是相同的，即解决问题。</p>
+<p>操作系统层用于管理计算机的资源。诸如 Windows、Linux 或 Mac OS 这样的操作系统可以使我们与计算机系统进行交互，管理硬件设备、程序和数据间的交互方式。了解操作系统为我们做了什么，通常是理解计算机的关键。</p>
+<p>前面的分层重点在于使计算机系统运转，而应用程序层的重点则是用计算机解决真实世界的问题。</p>
+<p>通信层使得计算机不再只是某个人桌面上的孤立系统，通过通信层，计算机被连接到网络上，以共享信息和资源。</p>
+<h3 id="抽象"><a class="markdownIt-Anchor" href="#抽象"></a> 抽象</h3>
+<p>上面分析的计算机系统的层次是抽象的一种例子。所谓抽象，其实是一种心理模型，是一种思考事情的方式，他删除它删除或隐藏了复杂的细节，只保留实现目标所必需的信息。</p>
+<p>我们的日常生活中充满了抽象。例如，要把一辆车开到商店去，我们不需要知道车是如何运转的。也就是说，我们根本不必详细地知道引擎是如何工作的。你只需要知道一些基础知识，即如何与车互动以及如何操作刹车、油门和方向盘，甚至不必同时考虑这几个方面。</p>
+<p>抽象是计算的关键，计算机系统的分层表现了抽象的概念。此外，抽象还以各种形式出现在各个分层中。</p>
+<h2 id="计算机的历史"><a class="markdownIt-Anchor" href="#计算机的历史"></a> 计算机的历史</h2>
+<h3 id="计算机硬件的简史"><a class="markdownIt-Anchor" href="#计算机硬件的简史"></a> 计算机硬件的简史</h3>
+<p>辅助人们进行各种计算的设备自古就有，迄今为止，它们还在不断进化中。</p>
+<h4 id="早期历史"><a class="markdownIt-Anchor" href="#早期历史"></a> 早期历史</h4>
+<p>出现在公元前 16 世纪的<strong>算盘</strong>是一种记录数值的工具，人们可以用它进行基本的数学运算。</p>
+<p>17 世纪中叶，法国数学家 Blaise Pascal 建造b并出售了一种齿轮驱动的机械机器，它可以执行整数的加法和减法运算。</p>
+<p>17 世纪末，德国数学家 Gottfried Wilhelm von Leibniz 建造了第一台能够进行四种整数计算（加法、减法、乘法和除法）的机械设备。遗憾的是，当时的机械齿轮和操作杆的水平有限，使 Leibniz 机的结果不那么可信。</p>
+<p>18 世纪晚期，Joseph Jacquard 发明了 Jacquard 织布机。这种织布机利用一套穿孔卡片来说明需要什么颜色的线，从而控制了纺织图案。尽管 Jacquard 织布机不是一种计算设备，但是它第一次使用了穿孔卡片这种输入方式。</p>
+<p>计算机硬件的下一步重大发展直到 19 世纪才出现，这一次是由英国数学家 Charles Babbage 发明的，他称之为<strong>分析机</strong>。他的设计太过复杂，以至于当时的技术水平不能建造那样的机器，所以他的发明根本就没有实现。但是，在他构想的设计中，却包括许多现代计算机的重要部件。他的设计中第一次出现了内存，这使中间值不必再重新输入。此外，他的设计还包括数字输入和机械输入法，采用了与 Jacquard 织布机使用的穿孔卡片相同的方式。</p>
+<p>Lovelace 伯爵夫人 Ada Augusta 是计算机历史上的传奇人物。Ada 是英国诗人 Lord Byron 的女儿，是一位接触的数学家。她对 Babbage 的分析机非常感兴趣，扩充了他的想法（同时修改了他的一些错误）。Ada 以第一位程序员著称。循环的概念（即一系列重复执行的指令）也归功于她。美国国防部广泛使用的 Ada 程序设计语言即是以她的名字命名的。</p>
+<p>19 世纪晚期和 20 世纪初，计算机系统迅速发展起来。William Burroughs 制造并销售了一台机械加法机。Herman Hollerith 博士发明了第一台机电式制表机，从穿孔卡片读取信息。他的设备从根本上改变了美国每十年举行一次的人口普查。后来，Hollerith 博士创建了当今著名的 IBM 公司。</p>
+<p>1936年，一种理论得以发展，本质上它与硬件毫无关系，但它对计算机科学产生了深远的影响。英国数学家 Alan M. Turing 发明了一种抽象数学模型<strong>图灵机</strong>，为计算机理论的主要领域奠定了基础。分析图灵机的功能是所有学习计算机科学的学生的理论学习的一部分。</p>
+<p>到第二次世界大战爆发时，已经有几台计算机处于设计和建造中。Harvard Mark I 和 ENIAC 是当时最著名的两台机器。</p>
+<p>1951年，美国人口普查局收到了第一台商业计算机 UNIVAC I。UNIVAC I 的出现结束了以算盘为开端的计算早期历史。</p>
+<p>1951年后，计算机被越来越广泛地用来解决各个领域中的问题。</p>
+<h4 id="第一代1951-~-1959"><a class="markdownIt-Anchor" href="#第一代1951-~-1959"></a> 第一代（1951 ~ 1959）</h4>
+<p>第一代（大约从 1951 年到 1959 年）商用计算机使用<strong>真空管</strong>存储信息。它会大量生热，不是非常靠谱。此外，它们还需要巨大的专用房间。</p>
+<p>第一代计算机的主存储器是在读/写臂下旋转的磁鼓。当被访问的存储单元旋转到读/写臂之下时，数据将被写入这个单元或从这个单元中读出。</p>
+<p>输入设备是一台读卡机，可以阅读 IBM 卡（由 Hollerith 卡演化而来）上的孔。输出设备是穿孔卡片或行式打印机。在这一代将要结束时，出现了<strong>磁带驱动器</strong>，它比读卡机快得多。磁带是顺序存储设备，也就是说，必须按照线性顺序访问磁带上的数据。</p>
+<p>计算机存储器外部的存储设备叫做<strong>辅助存储设备</strong>。磁带是一种辅助存储设备。输入设备、输出设备和辅助存储设备一起构成了<strong>外围设备</strong>。</p>
+<h4 id="第二代1959-~-1965"><a class="markdownIt-Anchor" href="#第二代1959-~-1965"></a> 第二代（1959 ~ 1965）</h4>
+<p>晶体管的出现标志着第二代商用计算机的诞生。晶体管代替真空管成了计算机硬件的主要部件。它比真空管更小、更可靠、更快、寿命更长也更便宜。</p>
+<p>第二代计算机中还出现了即时存取存储器。访问磁鼓上的信息时，CPU 必须等待读/写臂旋转到正确的位置。第二代计算机使用<strong>磁芯</strong>作为存储器，这是一种微小的环形设备，每个磁芯可以存储一位信息。这些磁芯由电线排成一列，构成存储单元，存储单元组合在一起构成了存储单位。由于设备是静止不动的，而且是电力访问的，所以能够即时访问信息。</p>
+<p><strong>磁盘</strong>是一种新的辅助存储设备，也出现在第二代计算机中。磁盘比磁带快，因为使用数据项在磁盘上的位置就可以直接访问它。访问磁盘上的一个数据项时，必须先访问这个数据项之前的所有数据，而磁盘上的数据都有位置标识符，我们称之为地址。磁盘的读/写头可以被直接送到磁盘上存储所需的信息的特定位置。</p>
+<h4 id="第三代1965-~-1971"><a class="markdownIt-Anchor" href="#第三代1965-~-1971"></a> 第三代（1965 ~ 1971）</h4>
+<p>在第二代计算机中，晶体管和其他计算机元件都被手工集成在印刷<strong>电路板</strong>上。第三代计算机的特征是<strong>集成电路</strong>，一种具有晶体管和其他元件以及它们的连线的硅片。集成电路比印刷电路小，它更便宜、更快并且更可靠。Intel 公司的奠基人之一 Gordon Moore 注意到从发明集成电路起，一个集成电路板上能够容纳的电路的数量每年增长一倍，这就是著名的摩尔定律。</p>
+<p>晶体管也被应用在存储器构造中。每个晶体管表示一位信息。集成电路技术允许用晶体管建造存储板。辅助存储设备仍然是必需的，因为晶体管存储器不稳定，也就是说，断电之后，所有的信息都将消失。</p>
+<p><strong>终端</strong>（带有键盘和屏幕的输人/输出设备）便是在这一代计算机中出现的。键盘使用户可以直接访问计算机，屏幕则可以提供立即响应。</p>
+<h4 id="第四代1971-~"><a class="markdownIt-Anchor" href="#第四代1971-~"></a> 第四代（1971 ~ ?）</h4>
+<p><strong>大规模集成化</strong>是第四代计算机的特征。20 世纪 70 年代早期，一个硅片上可以集成几千个晶体管，而 80 年代中期，一个硅片则可以容纳整个微型计算机。主存储设备仍然依赖芯片技术。在过去的 40 年中，每一代计算机硬件的功能都变得越来越强大，体积越来越小，花费也越来越少。Moore 定律被改为芯片的集成度每 18 个月增长一倍。</p>
+<h4 id="并行计算"><a class="markdownIt-Anchor" href="#并行计算"></a> 并行计算</h4>
+<p>20 世纪 80 年代末，尽管使用单处理器的计算机仍然盛行，但是新的机器体系结构出现了。使用<strong>并行体系结构</strong>的计算机依靠的是一套互相连接的中央处理器。</p>
+<p>一种并行机器的组织结构是所有所有处理器共享一个存储部件。另一种组织机构是每个中央处理器具有自己的本地内存，与其它处理器通过高速内部网进行通信。</p>
+<p><strong>并行体系结构</strong>提供了几种加快执行速度的方法。一种是把程序中的一步操作分成多个片段，在几个独立的处理器上同时执行这些代码片段，这种机器被称为 SIMD（单指令多数据流，single-instruction, multiple-data-stream）计算机。另一种可以同时运行程序的不同部分，这种机器被称为 MIMD（多指令多数据流，multiple-instruction, multiple-data-stream）计算机。</p>
+<p>虽然把上百甚至上千个处理器组织在一台机器中有巨大的潜能，但是为这种计算机进行程序设计的难度也很高。并行计算机的软件设计不同于在一个计算机序列的软件设计。程序设计人员必须重新思考解决问题的方法，利用并行性进行程序设计。</p>
+<h4 id="连网"><a class="markdownIt-Anchor" href="#连网"></a> 连网</h4>
+<p>20 世纪 80 年代，多用户大型机的概念被小型机器连接成的网络替代，这些小型机器通过连网共享打印机、软件和数据这些资源。</p>
+<p>1973 年由 Robert Metcalfe 和 David Boggs 发明的<strong>以太网</strong>是一种廉价的同轴电缆和一套能够让机器互相通信的协议。</p>
+<p>1989 年，Novell Netware 用文件服务器把 PC 连接在一起。<strong>文件服务器</strong>是一台具有大容量的存储器以及强劲的输入/输出能力的 PC。把数据和办公自动化软件放在服务器上，而不是在每台 PC 上放置一个副本，这样既达到了集中管理的目的，又给予了每台 PC 自主权。把工作站或 PC 连接成网络，就形成了 LAN（局域网，local area network）。</p>
+<p>Internet 是从 ARPANET 演化来的，ARPANET 是美国政府从 20 世纪 60 年代开始资助的网络，由 11 个节点构成，集中分布在 Los Angeles 和 Boston 地区。与 ARPANET 和 LAN 一样，Internet 使用<strong>包交换</strong>的方法共享信息。但是，Internet 由分布在世界各地的不同网络组成，这些网络之间采用通用的 TCP/IP（传输控制协议/网际协议，）协议通信。</p>
+<h3 id="计算机软件的简史"><a class="markdownIt-Anchor" href="#计算机软件的简史"></a> 计算机软件的简史</h3>
+<h4 id="第一代软件1951-~-1959"><a class="markdownIt-Anchor" href="#第一代软件1951-~-1959"></a> 第一代软件（1951 ~ 1959）</h4>
+<p>第一代程序是用j机器语言编写的。所谓机器语言，即内置在计算机电路中的指令。即使是对两个数字求和这样的小任务也要动用 3 条二进制指令，程序设计人员必须记住每种二进制数字的组合表示什么。因此，使用机器语言进行程序设计不仅耗时，而且容易出错。</p>
+<p>由于编写机器代码非常乏味，有些程序设计人员就开发了一些工具辅助程序设计。因此，第一代人工程序设计语言出现了。这些语言被称为<strong>汇编语言</strong>，它们使用助记忆码表示每条机器语言指令。</p>
+<p>由于每个程序在计算机上执行时采用的z最终形式都是机器语言，所以汇编语言的开发者还创建了一种<strong>翻译程序</strong>，把用汇编语言编写的程序翻译成用机器语言编写的。一种被称为<strong>汇编器</strong>的程序将读取每条用助记忆码编写的程序指令，把它翻译成等价的机器语言。</p>
+<p>汇编语言是程序设计人员和机器硬件之间的缓冲器。即使是现在，如果需要编写高效的代码， 那么还是会用汇编语言编写程序。</p>
+<h4 id="第二代软件1959-~-1965"><a class="markdownIt-Anchor" href="#第二代软件1959-~-1965"></a> 第二代软件（1959 ~ 1965）</h4>
+<p>当硬件变得更强大时，就需要更强大的工具能有效地使用它它们。当然，汇编语言是向正确的方向前进了一步，但是程序设计人员还是必须记住单独的机器指令。第二代软件一定要由更强大的语言开发。使用<strong>高级语言</strong>，程序设计人员就能够使用类似于英语的语句编写指令。</p>
+<p>第二代软件时期开发的两种语言，目前仍在使用，它们是 FORTRAN（为数字应用程序设计的语言）和 COBOL（为商业应用程序设计的语言）。这一时期设计的另一种仍然在使用的语言是 Lisp，它主要用于人工智能的应用程序和研究。</p>
+<h4 id="第三代软件1965-~-1971"><a class="markdownIt-Anchor" href="#第三代软件1965-~-1971"></a> 第三代软件（1965 ~ 1971）</h4>
+<p>在第三代商用计算机时期，很显然，人们是计算机的处理速度放慢了。计算机在等待计算机准备下一个作业时，无所事事。解决方法是使所有计算机资源处于计算机的控制中，也就是说，要编写一种程序，决定何时运行什么程序。这种程序被称为<strong>操作系统</strong>。</p>
+<p>在前两代软件时期，实用程序用于处理频繁执行的任务。<strong>装入器</strong>把程序载入内存，<strong>连接器</strong>则把大型程序连接在一起。第三代软件改进了这些实用程序，使它们处于操作系统的引导下。实用程序、操作系统和语言翻译程序（汇编器和编译器）构成了<strong>系统软件</strong>。</p>
+<h4 id="第四代软件1971-~-1989"><a class="markdownIt-Anchor" href="#第四代软件1971-~-1989"></a> 第四代软件（1971 ~ 1989）</h4>
+<p>20 世纪 70 年代出现了更好的程序设计技术——结构化程序设计方法，一种有逻辑、有规则的程序设计方法，著名的 C 语言就是在这一时期出现的。</p>
+<p>更好、更强大的操作系统也被开发出来了。AT&amp;T 公司作为研究工具开发的 UNIX 系统成了许多大学的标准设置。为 IBM PC 开发的 PC-DOS 系统和为了兼容开发的 MS-DOS 系统都成了个人计算机的标准系统。Macintosh 机的操作系统引入了鼠标的概念和点击式的图形界面，因此彻底改变了人机交互方式。</p>
+<h4 id="第五代软件1990-~-今天"><a class="markdownIt-Anchor" href="#第五代软件1990-~-今天"></a> 第五代软件（1990 ~ 今天）</h4>
+<p>第五代中有三个著名事件，即在计算机软件业具有主导地位的 Microsoft 公司的崛起、面向对象的设计和编程方法的出现以及万维网（World Wide  Web）的普及。</p>
+
+      </div>
+        
+          <section class="meta" id="footer-meta">
+            <hr>
+            <div class="new-meta-box">
+              
+                <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-03-17T20:15:54+08:00">
+                  <a class="notlink">
+                    <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+                    2019-03-17
+                  </a>
+                </div>
+              
+              
+                
+                <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Java/"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;Java</a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Java-SE/"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;Java SE</a></div>
+              
+              
+                
+  <div class="new-meta-item share -mob-share-list">
+    <i class="fas fa-share-alt" aria-hidden="true"></i>
+    <div class="-mob-share-list share-body">
+      
+        
+          <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.luckylight6.com/2019/02/20/夯实 Java 基础/夯实 Java 基础 (2) - 计算机系统简介/&title=夯实 Java 基础 (2) - 计算机系统简介 | LuckyLight's blog&summary=">
+            
+              <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qq.png">
+            
+          </a>
+        
+      
+        
+          <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://blog.luckylight6.com/2019/02/20/夯实 Java 基础/夯实 Java 基础 (2) - 计算机系统简介/&title=夯实 Java 基础 (2) - 计算机系统简介 | LuckyLight's blog&summary=">
+            
+              <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qzone.png">
+            
+          </a>
+        
+      
+        
+          <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=http://blog.luckylight6.com/2019/02/20/夯实 Java 基础/夯实 Java 基础 (2) - 计算机系统简介/&title=夯实 Java 基础 (2) - 计算机系统简介 | LuckyLight's blog&summary=">
+            
+              <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/weibo.png">
+            
+          </a>
+        
+      
+    </div>
+  </div>
+
+
+              
+            </div>
+          </section>
+        
+
+        
+            <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
+                            <h4>
+                                <a href="/2019/02/23/夯实 Java 基础/夯实 Java 基础 (3) - 进制/" rel="prev" title="夯实 Java 基础 (3) - 进制">
+                                  
+                                      夯实 Java 基础 (3) - 进制
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/Java/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Java</a> <a class="tag" href="/tags/Java-SE/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Java SE</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2019/02/17/夯实 Java 基础/夯实 Java 基础 (1) - 前言/" rel="prev" title="夯实 Java 基础 (1) - 前言">
+                                    
+                                        夯实 Java 基础 (1) - 前言
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/Java/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Java</a> <a class="tag" href="/tags/Java-SE/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Java SE</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+
+    </section>
+
+</article>
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+
+
+
+
+<script>
+    window.subData = {
+        title: '夯实 Java 基础 (2) - 计算机系统简介',
+        tools: true
+    }
+</script>
+
+
+        </div>
+        <aside class='l_side'>
+            
+  
+  
+    
+      
+      
+        
+  <section class="toc-wrapper">
+    
+<header class="pure">
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;文章目录</div>
+  
+    <div class="wrapper"><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+  
+</header>
+
+    <div class="content pure">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#计算机系统"><span class="toc-text"> 计算机系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算机系统的分层"><span class="toc-text"> 计算机系统的分层</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#抽象"><span class="toc-text"> 抽象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算机的历史"><span class="toc-text"> 计算机的历史</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#计算机硬件的简史"><span class="toc-text"> 计算机硬件的简史</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#早期历史"><span class="toc-text"> 早期历史</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第一代1951-~-1959"><span class="toc-text"> 第一代（1951 ~ 1959）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第二代1959-~-1965"><span class="toc-text"> 第二代（1959 ~ 1965）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第三代1965-~-1971"><span class="toc-text"> 第三代（1965 ~ 1971）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第四代1971-~"><span class="toc-text"> 第四代（1971 ~ ?）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#并行计算"><span class="toc-text"> 并行计算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#连网"><span class="toc-text"> 连网</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#计算机软件的简史"><span class="toc-text"> 计算机软件的简史</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#第一代软件1951-~-1959"><span class="toc-text"> 第一代软件（1951 ~ 1959）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第二代软件1959-~-1965"><span class="toc-text"> 第二代软件（1959 ~ 1965）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第三代软件1965-~-1971"><span class="toc-text"> 第三代软件（1965 ~ 1971）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第四代软件1971-~-1989"><span class="toc-text"> 第四代软件（1971 ~ 1989）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第五代软件1990-~-今天"><span class="toc-text"> 第五代软件（1990 ~ 今天）</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </section>
+
+
+      
+    
+  
+    
+      
+      
+        <section class="author">
+  <div class="content pure">
+    
+      <div class="avatar">
+        <img class="avatar" src="https://avatars2.githubusercontent.com/u/22209857">
+      </div>
+    
+    
+      <div class="text">
+        
+        
+        
+          <p><span id="jinrishici-sentence">LuckyLight's blog</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="https://github.com/LuckyLight6" class="social flat-btn" target="_blank" rel="external"><i class="social fab fa-github" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://weibo.com/u/5448313634" class="social flat-btn" target="_blank" rel="external"><i class="social fab fa-weibo" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://music.163.com/#/user/home?id=70457238" class="social flat-btn" target="_blank" rel="external"><i class="social fas fa-music" aria-hidden="true"></i></a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+      
+    
+  
+    
+      
+      
+        
+
+
+  <section class="music">
+    
+<header class="pure">
+  <div><i class="fas fa-compact-disc fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;最近在听</div>
+  
+    <a class="rightBtn" target="_blank" rel="external nofollow noopener noreferrer" href="https://music.163.com/#/user/home?id=70457238" title="https://music.163.com/#/user/home?id=70457238">
+    <i class="far fa-heart fa-fw"></i></a>
+  
+</header>
+
+    <div class="content pure">
+      
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.css">
+  <div class="aplayer" data-theme="#1bc3fb" data-mode="circulation" data-server="netease" data-type="playlist" data-id="75180857" data-volume="1">
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"></script>
+
+
+    </div>
+  </section>
+
+
+      
+    
+  
+    
+      
+      
+        
+  <section class="category">
+    
+<header class="pure">
+  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;所有分类</div>
+  
+</header>
+
+    <div class="content pure">
+      <ul class="entry">
+        
+          <li><a class="flat-box" title="/categories/Java-SE学习/" href="/categories/Java-SE学习/"><div class="name">Java SE学习</div><div class="badge">(5)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Linux/" href="/categories/Linux/"><div class="name">Linux</div><div class="badge">(7)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Spring-Boot/" href="/categories/Spring-Boot/"><div class="name">Spring Boot</div><div class="badge">(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/夯实-Java-基础/" href="/categories/夯实-Java-基础/"><div class="name">夯实 Java 基础</div><div class="badge">(4)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/实战/" href="/categories/实战/"><div class="name">实战</div><div class="badge">(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/工具/" href="/categories/工具/"><div class="name">工具</div><div class="badge">(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/记录/" href="/categories/记录/"><div class="name">记录</div><div class="badge">(1)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+      
+    
+  
+    
+      
+      
+        
+  <section class="tagcloud">
+    
+<header class="pure">
+  <div><i class="fas fa-fire fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;热门标签</div>
+  
+</header>
+
+    <div class="content pure">
+      <a href="/tags/JDK/" style="font-size: 16.5px; color: #888">JDK</a> <a href="/tags/JSON/" style="font-size: 14px; color: #999">JSON</a> <a href="/tags/Java/" style="font-size: 24px; color: #555">Java</a> <a href="/tags/Java-SE/" style="font-size: 21.5px; color: #666">Java SE</a> <a href="/tags/KaTeX/" style="font-size: 14px; color: #999">KaTeX</a> <a href="/tags/Linux/" style="font-size: 19px; color: #777">Linux</a> <a href="/tags/Markdown/" style="font-size: 14px; color: #999">Markdown</a> <a href="/tags/MathJax/" style="font-size: 14px; color: #999">MathJax</a> <a href="/tags/MySQL/" style="font-size: 14px; color: #999">MySQL</a> <a href="/tags/Servlet/" style="font-size: 16.5px; color: #888">Servlet</a> <a href="/tags/Spring-Boot/" style="font-size: 16.5px; color: #888">Spring Boot</a> <a href="/tags/Tomcat/" style="font-size: 16.5px; color: #888">Tomcat</a> <a href="/tags/Web/" style="font-size: 16.5px; color: #888">Web</a> <a href="/tags/fastjson/" style="font-size: 14px; color: #999">fastjson</a>
+    </div>
+  </section>
+
+
+      
+    
+  
+
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+    <footer id="footer" class="clearfix">
+  
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="https://github.com/LuckyLight6" class="social fab fa-github flat-btn" target="_blank" rel="external"></a>
+        
+      
+        
+          <a href="https://weibo.com/u/5448313634" class="social fab fa-weibo flat-btn" target="_blank" rel="external"></a>
+        
+      
+        
+          <a href="https://music.163.com/#/user/home?id=70457238" class="social fas fa-music flat-btn" target="_blank" rel="external"></a>
+        
+      
+    </div>
+  
+  <br>
+  <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+  <div>本站使用 <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a> 作为主题，总访问量为 <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> 次。
+  </div>
+</footer>
+
+    <script>setLoadingBarProgress(80);</script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+
+  
+    <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        const $reveal = $('.reveal');
+    		if ($reveal.length === 0) return;
+    		const sr = ScrollReveal({ distance: 0 });
+    		sr.reveal('.reveal');
+      });
+    </script>
+  
+  
+    <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        Waves.attach('.flat-btn', ['waves-button']);
+        Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+        Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+        Waves.attach('.flat-box', ['waves-block']);
+        Waves.attach('.float-box', ['waves-block', 'waves-float']);
+        Waves.attach('.waves-image');
+        Waves.init();
+      });
+    </script>
+  
+  
+    <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+  
+  
+  
+
+  
+  
+  
+    <script src="/js/app.js"></script>
+<script src="/js/search.js"></script>
+  
+
+
+
+
+
+
+    <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

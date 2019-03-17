@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>Java SE学习（三）之Java的基础语法（上） | LuckyLight&#39;s blog</title>
+  
+  <meta name="keywords" content="LuckyLight, Blog, Java">
+  
+  
+
+  
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+
+  <!-- link -->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.6.3/css/all.min.css">
+  
+
+  
+  <link rel="shortcut icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/22209857">
+  
+
+  
+  <link rel="stylesheet" href="/style.css">
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width = num + "%";
+    }
+  </script>
+
+  
+  
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
+</div>
+
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class="wrapper">
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href="/">
+        
+          LuckyLight's blog
+        
+      </a>
+			<div class="menu">
+				<ul class="h-list">
+          
+  					
+  						<li>
+								<a id="home" class="nav flat-box" href="/">
+									<i class="fas fa-home fa-fw"></i>&nbsp;首页
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="archives" class="nav flat-box" href="/archives/">
+									<i class="fas fa-archive fa-fw"></i>&nbsp;归档
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="categories" class="nav flat-box" href="/categories/">
+									<i class="fas fa-folder-open fa-fw"></i>&nbsp;分类
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="tags" class="nav flat-box" href="/tags/">
+									<i class="fas fa-tags fa-fw"></i>&nbsp;标签
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="books" class="nav flat-box" href="/books/">
+									<i class="fas fa-book fa-fw"></i>&nbsp;读书
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="movies" class="nav flat-box" href="/movies/">
+									<i class="fas fa-film fa-fw"></i>&nbsp;电影
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="links" class="nav flat-box" href="/links/">
+									<i class="fas fa-user-friends fa-fw"></i>&nbsp;友链
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="about" class="nav flat-box" href="/about/">
+									<i class="fas fa-grin-alt fa-fw"></i>&nbsp;关于
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="搜索">
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class="switcher h-list">
+				
+					<li class="s-search"><a class="fas fa-search fa-fw" href="javascript:void(0)"></a></li>
+				
+				<li class="s-menu"><a class="fas fa-bars fa-fw" href="javascript:void(0)"></a></li>
+			</ul>
+		</div>
+
+		<div class="nav-sub container container--flex">
+			<a class="logo flat-box"></a>
+			<ul class="switcher h-list">
+				<li class="s-comment"><a class="flat-btn fas fa-comments fa-fw" href="javascript:void(0)"></a></li>
+				<li class="s-toc"><a class="flat-btn fas fa-list fa-fw" href="javascript:void(0)"></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu">
+      <ul>
+          
+              
+                  <li>
+										<a id="home" class="nav flat-box" href="/">
+											<i class="fas fa-home fa-fw"></i>&nbsp;首页
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="archives" class="nav flat-box" href="/archives/">
+											<i class="fas fa-archive fa-fw"></i>&nbsp;归档
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="categories" class="nav flat-box" href="/categories/">
+											<i class="fas fa-folder-open fa-fw"></i>&nbsp;分类
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="tags" class="nav flat-box" href="/tags/">
+											<i class="fas fa-tags fa-fw"></i>&nbsp;标签
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="books" class="nav flat-box" href="/books/">
+											<i class="fas fa-book fa-fw"></i>&nbsp;读书
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="movies" class="nav flat-box" href="/movies/">
+											<i class="fas fa-film fa-fw"></i>&nbsp;电影
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="links" class="nav flat-box" href="/links/">
+											<i class="fas fa-user-friends fa-fw"></i>&nbsp;友链
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="about" class="nav flat-box" href="/about/">
+											<i class="fas fa-grin-alt fa-fw"></i>&nbsp;关于
+										</a>
+                  </li>
+              
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+  
+<section class="meta">
+  
+  
+  <div class="meta" id="header-meta">
+    
+      
+          <h1 class="title">Java SE学习（三）之Java的基础语法（上）</h1>
+      
+    
+
+    <div class="new-meta-box">
+      
+        <div class="new-meta-item author">
+          <a href="http://blog.luckylight6.com">
+            <i class="fas fa-user" aria-hidden="true"></i>
+            LuckyLight
+          </a>
+        </div>
+      
+      
+        <div class="new-meta-item date">
+          <a class="notlink">
+            <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+            2016-09-15
+          </a>
+        </div>
+      
+      
+        
+          
+          <div class="new-meta-item category">
+            <a href="/categories/Java-SE学习/">
+              <i class="fas fa-folder-open" aria-hidden="true"></i>
+              Java SE学习
+            </a>
+          </div>
+        
+      
+      
+        
+          <div class="new-meta-item browse busuanzi">
+            <a class="notlink">
+              <i class="fas fa-eye" aria-hidden="true"></i>
+              <span id="busuanzi_value_page_pv">
+                <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+              </span>
+            </a>
+          </div>
+        
+      
+      
+    </div>
+    <hr>
+  </div>
+</section>
+
+    <section class="article typo">
+      <div class="article-entry" itemprop="articleBody">
+        <p><img src="https://i.loli.net/2019/03/09/5c83b9993277d.png" alt></p>
+<a id="more"></a>
+<p>要学习一门程序设计语言，首先必须得学习它的语法，这部分内容对于大部分人来说是非常枯燥的，因为要记忆的内容非常多，但是要想学好 Java，就必须了解这部分的内容。语法格式只是学习时最基础的知识，在实际的开发中，需要根据程序的需要，使用恰当的格式去实现程序逻辑，所以语法一定要熟练。这部分内容对于具有 C/C++ 编程经验的程序员来说，只需要快速的浏览一下，注意其中的差异就行了。</p>
+<h2 id="注释"><a class="markdownIt-Anchor" href="#注释"></a> 注释</h2>
+<p>注释（comment）是对代码功能和用途的说明。在程序中编写适当的注释，将使程序代码更容易阅读，增强代码的可维护性。与大多数程序程序设计语言一样，Java 中的注释也不会出现在可执行程序（即 <code>.class</code> 文件）中。因此，可以在源程序中根据需要添加任意多的注释，而不用担心代码会膨胀。</p>
+<h3 id="单行注释"><a class="markdownIt-Anchor" href="#单行注释"></a> 单行注释</h3>
+<p>单行注释是最常用的注释方式，只需要在要注释的内容前面加上 <code>//</code> 即可。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// hello world</span></span><br></pre></td></tr></table></figure>
+<p><strong>注意：单行注释从两个斜线开始到本行结束都是注释的内容，注释内容不能换行。</strong></p>
+<h3 id="多行注释"><a class="markdownIt-Anchor" href="#多行注释"></a> 多行注释</h3>
+<p>多行注释可以将任意多行的内容注释，一般用于说明比较复杂的内容，只需要将需要注释的内容用 <code>/*</code> 和 <code>*/</code> 包围起来。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    hello</span></span><br><span class="line"><span class="comment">    world</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p><strong>注意：多行注释不能嵌套使用。</strong></p>
+<h3 id="文档注释"><a class="markdownIt-Anchor" href="#文档注释"></a> 文档注释</h3>
+<p>文档注释可以自动地生成文档，是 Java 的特色注释格式，这种注释以 <code>/**</code> 开头，以 <code>*/</code> 结束。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> v1.0</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> LuckyLight</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<h2 id="关键字"><a class="markdownIt-Anchor" href="#关键字"></a> 关键字</h2>
+<p>所谓关键字就是被 Java 语言赋予特殊含义，具有专门用途的单词，比如之前接触的 class，public，static等均为 Java 预设的关键字。组成关键字的字母全部都是小写，且不能用作常量、变量和其他标识符的名字。</p>
+<h3 id="常见关键字"><a class="markdownIt-Anchor" href="#常见关键字"></a> 常见关键字</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">关键字</th>
+<th style="text-align:center">关键字</th>
+<th style="text-align:center">关键字</th>
+<th style="text-align:center">关键字</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">abstract</td>
+<td style="text-align:center">assert</td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">break</td>
+</tr>
+<tr>
+<td style="text-align:center">byte</td>
+<td style="text-align:center">case</td>
+<td style="text-align:center">catch</td>
+<td style="text-align:center">char</td>
+</tr>
+<tr>
+<td style="text-align:center">class</td>
+<td style="text-align:center">const</td>
+<td style="text-align:center">continue</td>
+<td style="text-align:center">default</td>
+</tr>
+<tr>
+<td style="text-align:center">do</td>
+<td style="text-align:center">double</td>
+<td style="text-align:center">else</td>
+<td style="text-align:center">enum</td>
+</tr>
+<tr>
+<td style="text-align:center">extends</td>
+<td style="text-align:center">final</td>
+<td style="text-align:center">finally</td>
+<td style="text-align:center">float</td>
+</tr>
+<tr>
+<td style="text-align:center">for</td>
+<td style="text-align:center">goto</td>
+<td style="text-align:center">if</td>
+<td style="text-align:center">implements</td>
+</tr>
+<tr>
+<td style="text-align:center">import</td>
+<td style="text-align:center">instanceof</td>
+<td style="text-align:center">int</td>
+<td style="text-align:center">interface</td>
+</tr>
+<tr>
+<td style="text-align:center">long</td>
+<td style="text-align:center">native</td>
+<td style="text-align:center">new</td>
+<td style="text-align:center">package</td>
+</tr>
+<tr>
+<td style="text-align:center">private</td>
+<td style="text-align:center">protected</td>
+<td style="text-align:center">public</td>
+<td style="text-align:center">return</td>
+</tr>
+<tr>
+<td style="text-align:center">short</td>
+<td style="text-align:center">static</td>
+<td style="text-align:center">strictfp</td>
+<td style="text-align:center">super</td>
+</tr>
+<tr>
+<td style="text-align:center">switch</td>
+<td style="text-align:center">synchronized</td>
+<td style="text-align:center">this</td>
+<td style="text-align:center">throw</td>
+</tr>
+<tr>
+<td style="text-align:center">throws</td>
+<td style="text-align:center">transient</td>
+<td style="text-align:center">try</td>
+<td style="text-align:center">void</td>
+</tr>
+<tr>
+<td style="text-align:center">volatile</td>
+<td style="text-align:center">while</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意：goto 与 const 是 Java 中的保留字，即没有赋予特殊含义却仍被 Java 占用的单词</strong></p>
+<h2 id="标识符"><a class="markdownIt-Anchor" href="#标识符"></a> 标识符</h2>
+<p>标识符即标识的符号，指程序中一切自己指定的名称，例如后续语法中涉及到的变量名称、常量名称、数组名称、方法名称、参数名称、类名、接口名、对象名等等。</p>
+<h3 id="组成规则"><a class="markdownIt-Anchor" href="#组成规则"></a> 组成规则</h3>
+<ul>
+<li>英文大小写字母</li>
+<li>数字</li>
+<li>货币字符（$）和下划线（_）</li>
+</ul>
+<h3 id="注意事项"><a class="markdownIt-Anchor" href="#注意事项"></a> 注意事项</h3>
+<ul>
+<li>数字不能开头</li>
+<li>不可以使用关键字</li>
+<li>严格区分大小写，不限制长度</li>
+<li>起名时，尽量达到见名知意</li>
+</ul>
+<h3 id="标识符中常见的命名规则"><a class="markdownIt-Anchor" href="#标识符中常见的命名规则"></a> 标识符中常见的命名规则</h3>
+<ul>
+<li>类名使用 UpperCamelCase 风格，必须遵从驼峰形式，但以下情形例外：（领域模型 的相关命名）DO / DTO / VO / DAO 等。</li>
+</ul>
+<blockquote>
+<p>正例：MarcoPolo / UserDO / XmlService / TcpUdpDeal / TaPromotion<br>
+反例：macroPolo / UserDo / XMLService / TCPUDPDeal / TAPromotion</p>
+</blockquote>
+<ul>
+<li>方法名、参数名、成员变量、局部变量都统一使用 lowerCamelCase 风格，必须遵从驼峰形式。</li>
+</ul>
+<blockquote>
+<p>正例： localValue / getHttpMessage() / inputUserId</p>
+</blockquote>
+<ul>
+<li>常量命名全部大写，单词间用下划线隔开，力求语义表达完整清楚，不要嫌名字长。</li>
+</ul>
+<blockquote>
+<p>正例： MAX_STOCK_COUNT<br>
+反例： MAX_COUNT</p>
+</blockquote>
+<ul>
+<li>抽象类命名使用 Abstract 或 Base 开头；异常类命名使用 Exception 结尾；测试类命 名以它要测试的类的名称开始，以 Test 结尾。</li>
+<li>POJO 类中的任何布尔类型的变量，都不要加 is，否则部分框架解析会引起序列化错误。</li>
+</ul>
+<blockquote>
+<p>反例：定义为基本数据类型 boolean isSuccess；的属性，它的方法也是 isSuccess()，RPC框架在反向解析的时候，“以为”对应的属性名称是 success，导致属性获取不到，进而抛出异常。</p>
+</blockquote>
+<ul>
+<li>包名统一使用小写，点分隔符之间有且仅有一个自然语义的英语单词。包名统一使用 单数形式，但是类名如果有复数含义，类名可以使用复数形式。</li>
+</ul>
+<blockquote>
+<p>正例： 应用工具类包名为 com.alibaba.mpp.util、类名为 MessageUtils（此规则参考 spring的框架结构）</p>
+</blockquote>
+<h2 id="变量和常量"><a class="markdownIt-Anchor" href="#变量和常量"></a> 变量和常量</h2>
+<p>所谓变量,就是程序的运行过程中值会发生改变的量；所谓常量,就是程序运行过程中值不能发生改变的量。</p>
+<p>在实际的程序中，可以根据数据在程序运行中是否发生改变，来选择应该是使用变量还是常量。</p>
+<h3 id="声明"><a class="markdownIt-Anchor" href="#声明"></a> 声明</h3>
+<p>由于 Java 语言是一种强类型的语言，所以变量和常量在使用以前必须首先声明，在程序中声明变量和常量的语法格式如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数据类型 变量或常量名称;</span><br></pre></td></tr></table></figure>
+<p>变量或常量名称是该变量或常量的标识符，需要符合标识符的命名规则，在实际使用中，该名称一般和变量或常量的用途对应，这样便于程序的阅读。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> age;</span><br></pre></td></tr></table></figure>
+<h3 id="赋值"><a class="markdownIt-Anchor" href="#赋值"></a> 赋值</h3>
+<p>变量和常量在使用前必须先赋值，给变量或常量赋值的格式为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">变量或常量名称 = 值;</span><br></pre></td></tr></table></figure>
+<p>赋值时，要求值的类型需要和声明变量或常量的数据类型一致。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">age = <span class="number">18</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>注意：<code>=</code> 表示赋值,将 <code>=</code> 右边的值赋给了左边的变量或常量。Java 中使用 <code>==</code> 表示相等,等价于数学中的 <code>=</code>。</strong></p>
+<h3 id="综合使用"><a class="markdownIt-Anchor" href="#综合使用"></a> 综合使用</h3>
+<p>可以在声明变量或常量的同时，设定该变量或常量的值，语法格式如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数据类型 变量或常量名称 = 值;</span><br></pre></td></tr></table></figure>
+<p>例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> age = <span class="number">18</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="数据类型"><a class="markdownIt-Anchor" href="#数据类型"></a> 数据类型</h2>
+<p>Java 是一种强类型语言，这意味着必须为每一个变量声明一种数据类型，基于变量的数据类型，操作系统会进行内存分配并且决定什么将被储存在保留内存中。因此，通过给变量分配不同的数据类型，你可以在这些变量中存储整数，小数或者字字母。</p>
+<p>在 Java 中，数据类型分为原生数据类型和引用数据类型。</p>
+<h3 id="原生数据类型"><a class="markdownIt-Anchor" href="#原生数据类型"></a> 原生数据类型</h3>
+<p>Java 支持 8 种原始数据类型。原始数据类型是由该语言预先定义的并用关键词命名的。</p>
+<h4 id="字节型byte"><a class="markdownIt-Anchor" href="#字节型byte"></a> 字节型（byte）</h4>
+<ul>
+<li>字节型是一种 8 位有正负的二进制整数，最小值是 -128(-2^7)，最大值是 127(2^7-1)，默认值为 0。</li>
+<li>字节型数据类型主要是为了在大型数组内节省空间，主要是替代整数由于字节型比整数小 4 倍。</li>
+</ul>
+<p>例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">byte</span> a = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">byte</span> b = -<span class="number">50</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="短整数short"><a class="markdownIt-Anchor" href="#短整数short"></a> 短整数（short）</h4>
+<ul>
+<li>短整数是一种 16 位有正负的二进制整数，最小值是 -32768(-2^15)，最大值是 32767(2^15-1)，默认值为 0。</li>
+<li>短整数类型的数据也可以像字节型一样用于节省空间。短整数比整数小两倍</li>
+</ul>
+<p>例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">short</span> a = <span class="number">10000</span>;</span><br><span class="line"><span class="keyword">short</span> b = -<span class="number">20000</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="整数型int"><a class="markdownIt-Anchor" href="#整数型int"></a> 整数型（int）</h4>
+<ul>
+<li>整数型是一种 32 位有正负的二进制整数，最小值是 - 2,147,483,648(-2^31)，最大值是 2,147,483,647(2^31 -1)，默认值为 0。</li>
+<li>整数型一般默认被应用于整数值除非担心内存不够用。</li>
+</ul>
+<p>例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">100000</span>;</span><br><span class="line"><span class="keyword">int</span> b = -<span class="number">200000</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="长整型long"><a class="markdownIt-Anchor" href="#长整型long"></a> 长整型（long）</h4>
+<ul>
+<li>长整型是一种 64 位有正负的二进制整数，最小值是 -9,223,372,036,854,775,808(-2^63)，最大值是 9,223,372,036,854,775,807 (2^63 -1)，默认值为0。</li>
+<li>这种数据类型一般是在需要比整数型范围更大时应用。</li>
+</ul>
+<p>例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> a = <span class="number">1000000L</span>;</span><br><span class="line"><span class="keyword">long</span> b = -<span class="number">20000000L</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="浮点型float"><a class="markdownIt-Anchor" href="#浮点型float"></a> 浮点型（float）</h4>
+<ul>
+<li>浮点型数据是一种单精度的 32 位 IEEE 754 标准下的浮点数据，默认值是 0.0f。</li>
+<li>浮点型数据主要是为了在大型浮点数字数组中节约内存。</li>
+<li>浮点型数据不能用于如货币这样的精确数据。</li>
+</ul>
+<p>例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> a = <span class="number">234.5F</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="双精度型double"><a class="markdownIt-Anchor" href="#双精度型double"></a> 双精度型（double）</h4>
+<ul>
+<li>双精度型数据是一种双精度的 64 位 IEEE 754 标准下的浮点数据，默认值是 0.0d。</li>
+<li>这种数据类型主要是默认被用于表示小数的值，一般是默认的选择。</li>
+<li>双精度型数据不能用于如货币这样的精确数据。</li>
+</ul>
+<p>例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> a = <span class="number">123.4</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="布尔型boolean"><a class="markdownIt-Anchor" href="#布尔型boolean"></a> 布尔型（boolean）</h4>
+<ul>
+<li>布尔型数据代表一个信息比特。它只有两个可能的值：真（true）和假（false），默认值是假（false）。</li>
+<li>这种数据类型用于真假条件下的简单标记。</li>
+</ul>
+<p>例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">boolean</span> a = <span class="keyword">true</span>；</span><br></pre></td></tr></table></figure>
+<h4 id="字符型char"><a class="markdownIt-Anchor" href="#字符型char"></a> 字符型（char）</h4>
+<ul>
+<li>字符型数据是简单的 16 位 Unicode 标准下的字符，最小值是： ‘\u0000’ (或 0)，最大值是： ‘\uffff’ (或 65,535 )。</li>
+<li>字符型数据可以用来储存任意字母。</li>
+</ul>
+<p>例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> a =<span class="string">'A'</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="原生数据类型的相互转换"><a class="markdownIt-Anchor" href="#原生数据类型的相互转换"></a> 原生数据类型的相互转换</h4>
+<p>在 Java 中，类型的转换随处可见。例如变量的定义、数值的计算以及方法的传递等等，类型转换在 Java 中具有重要的作用。在此，先简单介绍一下原生数据类型的相互转换。</p>
+<p>要想理解数据类型的相互转换，首先必须知道以下两点：</p>
+<ul>
+<li>在 Java 中各种原生数据类型所占内存的大小，如下表所示：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">数据类型</th>
+<th style="text-align:center">所占的内存</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">未定</td>
+</tr>
+<tr>
+<td style="text-align:center">byte</td>
+<td style="text-align:center">1字节</td>
+</tr>
+<tr>
+<td style="text-align:center">char</td>
+<td style="text-align:center">2字节</td>
+</tr>
+<tr>
+<td style="text-align:center">short</td>
+<td style="text-align:center">2字节</td>
+</tr>
+<tr>
+<td style="text-align:center">int</td>
+<td style="text-align:center">4字节</td>
+</tr>
+<tr>
+<td style="text-align:center">long</td>
+<td style="text-align:center">8字节</td>
+</tr>
+<tr>
+<td style="text-align:center">float</td>
+<td style="text-align:center">4字节</td>
+</tr>
+<tr>
+<td style="text-align:center">double</td>
+<td style="text-align:center">8字节</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>在 Java 中，整数的默认数据类型为 int，浮点数的默认数据类型为 double。</li>
+</ul>
+<h5 id="隐式类型转换"><a class="markdownIt-Anchor" href="#隐式类型转换"></a> 隐式类型转换</h5>
+<p>在 Java 中，隐式转换由系统自动进行，无需程序员干涉，且不会损失精度。规则如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">原类型</th>
+<th style="text-align:center">目的类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">byte</td>
+<td style="text-align:center">short, int, long, float, double</td>
+</tr>
+<tr>
+<td style="text-align:center">short</td>
+<td style="text-align:center">int, long, float, double</td>
+</tr>
+<tr>
+<td style="text-align:center">char</td>
+<td style="text-align:center">int, long, float, double</td>
+</tr>
+<tr>
+<td style="text-align:center">int</td>
+<td style="text-align:center">long, float, double</td>
+</tr>
+<tr>
+<td style="text-align:center">long</td>
+<td style="text-align:center">float, double</td>
+</tr>
+<tr>
+<td style="text-align:center">float</td>
+<td style="text-align:center">double</td>
+</tr>
+</tbody>
+</table>
+<p>例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">byte</span> + <span class="keyword">int</span></span><br></pre></td></tr></table></figure>
+<p>会自动转换成：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> + <span class="keyword">int</span></span><br></pre></td></tr></table></figure>
+<p>又如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> + <span class="keyword">double</span></span><br></pre></td></tr></table></figure>
+<p>会转换成：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> + <span class="keyword">double</span></span><br></pre></td></tr></table></figure>
+<p>再如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">byte</span> + <span class="keyword">char</span></span><br></pre></td></tr></table></figure>
+<p>会转换成：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> + <span class="keyword">int</span></span><br></pre></td></tr></table></figure>
+<h5 id="显式类型转换"><a class="markdownIt-Anchor" href="#显式类型转换"></a> 显式类型转换</h5>
+<p>在 Java 中，显式类型转换又被称为强制类型转换，这种转换不会自动进行，需要由程序员显式指定，而且有可能损失精度。规则如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">原类型</th>
+<th style="text-align:center">目的类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">byte</td>
+<td style="text-align:center">char</td>
+</tr>
+<tr>
+<td style="text-align:center">short</td>
+<td style="text-align:center">byte, char</td>
+</tr>
+<tr>
+<td style="text-align:center">char</td>
+<td style="text-align:center">byte, short</td>
+</tr>
+<tr>
+<td style="text-align:center">int</td>
+<td style="text-align:center">byte, short, char</td>
+</tr>
+<tr>
+<td style="text-align:center">long</td>
+<td style="text-align:center">byte, short, char, int</td>
+</tr>
+<tr>
+<td style="text-align:center">float</td>
+<td style="text-align:center">byte, short, char, int, long</td>
+</tr>
+<tr>
+<td style="text-align:center">double</td>
+<td style="text-align:center">byte, short, char, int, long, float</td>
+</tr>
+</tbody>
+</table>
+<p>例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a;</span><br></pre></td></tr></table></figure>
+<p>要想将 a 转换成 byte 类型，需要这样写：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">byte</span>) a;</span><br></pre></td></tr></table></figure>
+<p>如想将整个表达式的结果进行数据类型转换，必须将整个表达式用括号括起来。</p>
+<p>例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a;</span><br><span class="line"><span class="keyword">int</span> b;</span><br><span class="line"><span class="keyword">byte</span> c;</span><br></pre></td></tr></table></figure>
+<p>要想将 <code>a + b</code> 的结果赋值给 <code>c</code>，则需要这样写：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c = (<span class="keyword">byte</span>) (a + b);</span><br></pre></td></tr></table></figure>
+<h3 id="引用数据类型"><a class="markdownIt-Anchor" href="#引用数据类型"></a> 引用数据类型</h3>
+<ul>
+<li>引用数据类型是由类的编辑器定义的。他们是用于访问对象的。这些变量被定义为不可更改的特定类型。例如：Employee， String 等等。</li>
+<li>类对象和数组变量就是这种引用数据类型。</li>
+<li>任何引用数据类型的默认值都为空。</li>
+<li>一个引用数据类型可以被用于任何声明类型和兼容类型的对象。</li>
+</ul>
+<p>例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String string = <span class="keyword">new</span> String(<span class="string">"hello world"</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="数据的进制表示"><a class="markdownIt-Anchor" href="#数据的进制表示"></a> 数据的进制表示</h2>
+<p>在 Java 中，数据默认是十进制的，如果想要使用其他进制的数据，就需要使用特殊的方式来表示。</p>
+<h3 id="二进制"><a class="markdownIt-Anchor" href="#二进制"></a> 二进制</h3>
+<p>如果想要表示二进制的数据，可以在二进制的数据前面加上 <code>0b</code>。这是 <code>JDK7</code> 的新特性。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int binaryNum = 0b1010;</span><br></pre></td></tr></table></figure>
+<h3 id="八进制"><a class="markdownIt-Anchor" href="#八进制"></a> 八进制</h3>
+<p>如果想要表示八进制的数据，可以在八进制的数据前面加上 <code>0</code>。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int octNum = 010;</span><br></pre></td></tr></table></figure>
+<h3 id="十六进制"><a class="markdownIt-Anchor" href="#十六进制"></a> 十六进制</h3>
+<p>如果想要表示十六进制的数据，可以在十六进制的数据前面加上 <code>0x</code>。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int hexNum = 0x1a;</span><br></pre></td></tr></table></figure>
+
+      </div>
+        
+          <section class="meta" id="footer-meta">
+            <hr>
+            <div class="new-meta-box">
+              
+                <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-03-17T20:15:54+08:00">
+                  <a class="notlink">
+                    <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+                    2019-03-17
+                  </a>
+                </div>
+              
+              
+                
+                <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Java/"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;Java</a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Java-SE/"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;Java SE</a></div>
+              
+              
+                
+  <div class="new-meta-item share -mob-share-list">
+    <i class="fas fa-share-alt" aria-hidden="true"></i>
+    <div class="-mob-share-list share-body">
+      
+        
+          <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.luckylight6.com/2016/09/15/Java SE学习/Java SE学习（三）之Java的基础语法（上）/&title=Java SE学习（三）之Java的基础语法（上） | LuckyLight's blog&summary=">
+            
+              <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qq.png">
+            
+          </a>
+        
+      
+        
+          <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://blog.luckylight6.com/2016/09/15/Java SE学习/Java SE学习（三）之Java的基础语法（上）/&title=Java SE学习（三）之Java的基础语法（上） | LuckyLight's blog&summary=">
+            
+              <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qzone.png">
+            
+          </a>
+        
+      
+        
+          <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=http://blog.luckylight6.com/2016/09/15/Java SE学习/Java SE学习（三）之Java的基础语法（上）/&title=Java SE学习（三）之Java的基础语法（上） | LuckyLight's blog&summary=">
+            
+              <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/weibo.png">
+            
+          </a>
+        
+      
+    </div>
+  </div>
+
+
+              
+            </div>
+          </section>
+        
+
+        
+            <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
+                            <h4>
+                                <a href="/2016/09/16/Java SE学习/Java SE学习（四）之Java的基础语法（中）/" rel="prev" title="Java SE学习（四）之Java的基础语法（中）">
+                                  
+                                      Java SE学习（四）之Java的基础语法（中）
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/Java/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Java</a> <a class="tag" href="/tags/Java-SE/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Java SE</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2016/09/14/Java SE学习/Java SE学习（二）之第一个Java程序/" rel="prev" title="Java SE学习（二）之第一个Java程序">
+                                    
+                                        Java SE学习（二）之第一个Java程序
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/Java/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Java</a> <a class="tag" href="/tags/Java-SE/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Java SE</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+
+    </section>
+
+</article>
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+
+
+
+
+<script>
+    window.subData = {
+        title: 'Java SE学习（三）之Java的基础语法（上）',
+        tools: true
+    }
+</script>
+
+
+        </div>
+        <aside class='l_side'>
+            
+  
+  
+    
+      
+      
+        
+  <section class="toc-wrapper">
+    
+<header class="pure">
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;文章目录</div>
+  
+    <div class="wrapper"><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+  
+</header>
+
+    <div class="content pure">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#注释"><span class="toc-text"> 注释</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#单行注释"><span class="toc-text"> 单行注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多行注释"><span class="toc-text"> 多行注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文档注释"><span class="toc-text"> 文档注释</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关键字"><span class="toc-text"> 关键字</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常见关键字"><span class="toc-text"> 常见关键字</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标识符"><span class="toc-text"> 标识符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#组成规则"><span class="toc-text"> 组成规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意事项"><span class="toc-text"> 注意事项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标识符中常见的命名规则"><span class="toc-text"> 标识符中常见的命名规则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#变量和常量"><span class="toc-text"> 变量和常量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#声明"><span class="toc-text"> 声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#赋值"><span class="toc-text"> 赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#综合使用"><span class="toc-text"> 综合使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型"><span class="toc-text"> 数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#原生数据类型"><span class="toc-text"> 原生数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#字节型byte"><span class="toc-text"> 字节型（byte）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#短整数short"><span class="toc-text"> 短整数（short）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#整数型int"><span class="toc-text"> 整数型（int）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#长整型long"><span class="toc-text"> 长整型（long）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#浮点型float"><span class="toc-text"> 浮点型（float）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#双精度型double"><span class="toc-text"> 双精度型（double）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#布尔型boolean"><span class="toc-text"> 布尔型（boolean）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#字符型char"><span class="toc-text"> 字符型（char）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#原生数据类型的相互转换"><span class="toc-text"> 原生数据类型的相互转换</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#隐式类型转换"><span class="toc-text"> 隐式类型转换</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#显式类型转换"><span class="toc-text"> 显式类型转换</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引用数据类型"><span class="toc-text"> 引用数据类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据的进制表示"><span class="toc-text"> 数据的进制表示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#二进制"><span class="toc-text"> 二进制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#八进制"><span class="toc-text"> 八进制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#十六进制"><span class="toc-text"> 十六进制</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+      
+    
+  
+    
+      
+      
+        <section class="author">
+  <div class="content pure">
+    
+      <div class="avatar">
+        <img class="avatar" src="https://avatars2.githubusercontent.com/u/22209857">
+      </div>
+    
+    
+      <div class="text">
+        
+        
+        
+          <p><span id="jinrishici-sentence">LuckyLight's blog</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="https://github.com/LuckyLight6" class="social flat-btn" target="_blank" rel="external"><i class="social fab fa-github" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://weibo.com/u/5448313634" class="social flat-btn" target="_blank" rel="external"><i class="social fab fa-weibo" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://music.163.com/#/user/home?id=70457238" class="social flat-btn" target="_blank" rel="external"><i class="social fas fa-music" aria-hidden="true"></i></a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+      
+    
+  
+    
+      
+      
+        
+
+
+  <section class="music">
+    
+<header class="pure">
+  <div><i class="fas fa-compact-disc fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;最近在听</div>
+  
+    <a class="rightBtn" target="_blank" rel="external nofollow noopener noreferrer" href="https://music.163.com/#/user/home?id=70457238" title="https://music.163.com/#/user/home?id=70457238">
+    <i class="far fa-heart fa-fw"></i></a>
+  
+</header>
+
+    <div class="content pure">
+      
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.css">
+  <div class="aplayer" data-theme="#1bc3fb" data-mode="circulation" data-server="netease" data-type="playlist" data-id="75180857" data-volume="1">
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"></script>
+
+
+    </div>
+  </section>
+
+
+      
+    
+  
+    
+      
+      
+        
+  <section class="category">
+    
+<header class="pure">
+  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;所有分类</div>
+  
+</header>
+
+    <div class="content pure">
+      <ul class="entry">
+        
+          <li><a class="flat-box" title="/categories/Java-SE学习/" href="/categories/Java-SE学习/"><div class="name">Java SE学习</div><div class="badge">(5)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Linux/" href="/categories/Linux/"><div class="name">Linux</div><div class="badge">(7)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Spring-Boot/" href="/categories/Spring-Boot/"><div class="name">Spring Boot</div><div class="badge">(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/夯实-Java-基础/" href="/categories/夯实-Java-基础/"><div class="name">夯实 Java 基础</div><div class="badge">(4)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/实战/" href="/categories/实战/"><div class="name">实战</div><div class="badge">(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/工具/" href="/categories/工具/"><div class="name">工具</div><div class="badge">(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/记录/" href="/categories/记录/"><div class="name">记录</div><div class="badge">(1)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+      
+    
+  
+    
+      
+      
+        
+  <section class="tagcloud">
+    
+<header class="pure">
+  <div><i class="fas fa-fire fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;热门标签</div>
+  
+</header>
+
+    <div class="content pure">
+      <a href="/tags/JDK/" style="font-size: 16.5px; color: #888">JDK</a> <a href="/tags/JSON/" style="font-size: 14px; color: #999">JSON</a> <a href="/tags/Java/" style="font-size: 24px; color: #555">Java</a> <a href="/tags/Java-SE/" style="font-size: 21.5px; color: #666">Java SE</a> <a href="/tags/KaTeX/" style="font-size: 14px; color: #999">KaTeX</a> <a href="/tags/Linux/" style="font-size: 19px; color: #777">Linux</a> <a href="/tags/Markdown/" style="font-size: 14px; color: #999">Markdown</a> <a href="/tags/MathJax/" style="font-size: 14px; color: #999">MathJax</a> <a href="/tags/MySQL/" style="font-size: 14px; color: #999">MySQL</a> <a href="/tags/Servlet/" style="font-size: 16.5px; color: #888">Servlet</a> <a href="/tags/Spring-Boot/" style="font-size: 16.5px; color: #888">Spring Boot</a> <a href="/tags/Tomcat/" style="font-size: 16.5px; color: #888">Tomcat</a> <a href="/tags/Web/" style="font-size: 16.5px; color: #888">Web</a> <a href="/tags/fastjson/" style="font-size: 14px; color: #999">fastjson</a>
+    </div>
+  </section>
+
+
+      
+    
+  
+
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+    <footer id="footer" class="clearfix">
+  
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="https://github.com/LuckyLight6" class="social fab fa-github flat-btn" target="_blank" rel="external"></a>
+        
+      
+        
+          <a href="https://weibo.com/u/5448313634" class="social fab fa-weibo flat-btn" target="_blank" rel="external"></a>
+        
+      
+        
+          <a href="https://music.163.com/#/user/home?id=70457238" class="social fas fa-music flat-btn" target="_blank" rel="external"></a>
+        
+      
+    </div>
+  
+  <br>
+  <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+  <div>本站使用 <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a> 作为主题，总访问量为 <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> 次。
+  </div>
+</footer>
+
+    <script>setLoadingBarProgress(80);</script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+
+  
+    <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        const $reveal = $('.reveal');
+    		if ($reveal.length === 0) return;
+    		const sr = ScrollReveal({ distance: 0 });
+    		sr.reveal('.reveal');
+      });
+    </script>
+  
+  
+    <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        Waves.attach('.flat-btn', ['waves-button']);
+        Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+        Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+        Waves.attach('.flat-box', ['waves-block']);
+        Waves.attach('.float-box', ['waves-block', 'waves-float']);
+        Waves.attach('.waves-image');
+        Waves.init();
+      });
+    </script>
+  
+  
+    <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+  
+  
+  
+
+  
+  
+  
+    <script src="/js/app.js"></script>
+<script src="/js/search.js"></script>
+  
+
+
+
+
+
+
+    <script>setLoadingBarProgress(100);</script>
+</body>
+</html>
